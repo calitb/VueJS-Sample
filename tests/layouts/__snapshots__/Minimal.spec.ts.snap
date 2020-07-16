@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Minimal Layout Logged should render the component 1`] = `
+<div>
+  <nav
+    class="navbar navbar-dark bg-dark navbar-expand-lg"
+  >
+    <a
+      class="navbar-brand"
+      href="/"
+      target="_self"
+    >
+      Vue Tutorial
+    </a>
+     
+    <button
+      aria-controls="nav-collapse"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+      class="navbar-toggler collapsed"
+      type="button"
+    >
+      <span
+        class="navbar-toggler-icon"
+      />
+    </button>
+     
+    <transition-stub
+      css="true"
+      enteractiveclass="collapsing"
+      enterclass=""
+      entertoclass="collapse show"
+      leaveactiveclass="collapsing"
+      leaveclass="collapse show"
+      leavetoclass="collapse"
+    >
+      <div
+        class="navbar-collapse collapse"
+        id="nav-collapse"
+        style="display: none;"
+      >
+        <ul
+          class="navbar-nav ml-auto"
+        >
+          <button
+            class="btn btn-outline-light"
+            type="button"
+          >
+            Sign Out
+          </button>
+        </ul>
+      </div>
+    </transition-stub>
+  </nav>
+   
+  <router-view-stub />
+</div>
+`;
+
+exports[`Minimal Layout Not logged should render the component 1`] = `
+<div>
+  <b-navbar-stub
+    tag="nav"
+    toggleable="lg"
+    type="dark"
+    variant="dark"
+  >
+    <b-navbar-brand-stub
+      href="/"
+      tag="div"
+      target="_self"
+    >
+      Vue Tutorial
+    </b-navbar-brand-stub>
+     
+    <!---->
+     
+    <!---->
+  </b-navbar-stub>
+   
+  <router-view-stub
+    name="default"
+  />
+</div>
+`;

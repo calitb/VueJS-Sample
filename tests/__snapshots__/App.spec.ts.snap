@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App Default should render the component 1`] = `
+<div>
+  <router-view-stub />
+</div>
+`;
+
+exports[`App No items because of fetch error should render the component 1`] = `
+<div>
+  <router-view-stub />
+</div>
+`;

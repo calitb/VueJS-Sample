@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`List Page Default should render the component 1`] = `
+<div>
+  <b-card-stub
+    bodytag="div"
+    footertag="div"
+    headertag="div"
+    subtitletag="h6"
+    subtitletextvariant="muted"
+    tag="div"
+    titletag="h4"
+  >
+    <b-list-group-stub
+      tag="div"
+    >
+      <b-list-group-item-stub
+        tag="div"
+        target="_self"
+      >
+        <img
+          height="52px"
+          src="https://img.pokemondb.net/artwork/charmander.jpg"
+          width="52px"
+        />
+         
+        <b-link-stub
+          event="click"
+          href="/detail/4"
+          routertag="a"
+          target="_self"
+        >
+          Charmander
+        </b-link-stub>
+      </b-list-group-item-stub>
+      <b-list-group-item-stub
+        tag="div"
+        target="_self"
+      >
+        <img
+          height="52px"
+          src="https://img.pokemondb.net/artwork/charmeleon.jpg"
+          width="52px"
+        />
+         
+        <b-link-stub
+          event="click"
+          href="/detail/5"
+          routertag="a"
+          target="_self"
+        >
+          Charmeleon
+        </b-link-stub>
+      </b-list-group-item-stub>
+      <b-list-group-item-stub
+        tag="div"
+        target="_self"
+      >
+        <img
+          height="52px"
+          src="https://img.pokemondb.net/artwork/charizard.jpg"
+          width="52px"
+        />
+         
+        <b-link-stub
+          event="click"
+          href="/detail/6"
+          routertag="a"
+          target="_self"
+        >
+          Charizard
+        </b-link-stub>
+      </b-list-group-item-stub>
+    </b-list-group-stub>
+  </b-card-stub>
+</div>
+`;
