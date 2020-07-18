@@ -6,21 +6,12 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import getItems from '@/api/getItems';
+import { fetchItems } from '@/store/actions';
 
 export default Vue.extend({
   name: 'App',
-  methods: {
-    loadItems() {
-      getItems((error, data) => {
-        if (!error) {
-          this.$root.$data.items = data;
-        }
-      });
-    }
-  },
   created() {
-    this.loadItems();
+    this.$store.dispatch(fetchItems());
   }
 });
 </script>

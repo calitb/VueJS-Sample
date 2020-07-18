@@ -6,7 +6,7 @@ import { createLocalVue } from '../utils';
 const localVue = createLocalVue();
 localVue.filter('imageSRC', itemImageURL);
 
-describe('Detail Page', () => {
+describe.skip('Detail Page', () => {
   const Parent = {
     data() {
       return {
