@@ -2,21 +2,14 @@ import { shallowMount } from '@vue/test-utils';
 import ListPage from '@/pages/ListPage.vue';
 import { itemImageURL, itemsFixture } from '@/items';
 
-import { createLocalVue } from '../utils';
+import { createLocalVue, createStore } from '../utils';
 const localVue = createLocalVue();
 localVue.filter('imageSRC', itemImageURL);
 
 describe('List Page', () => {
   describe('Default', () => {
-    const Parent = {
-      data() {
-        return {
-          items: itemsFixture
-        };
-      }
-    };
-
-    const wrapper = shallowMount(ListPage, { localVue, parentComponent: Parent });
+    const store = createStore({ items: itemsFixture });
+    const wrapper = shallowMount(ListPage, { localVue, store });
 
     it('should render the component', () => {
       expect(wrapper.element).toMatchSnapshot();

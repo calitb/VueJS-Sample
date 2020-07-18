@@ -1,27 +1,24 @@
 import { shallowMount, mount } from '@vue/test-utils';
 import DetailPage from '@/pages/DetailPage.vue';
-import { itemImageURL, itemsFixture } from '@/items';
+import { itemImageURL } from '@/items';
 
-import { createLocalVue } from '../utils';
+import { createLocalVue, createStore } from '../utils';
 const localVue = createLocalVue();
 localVue.filter('imageSRC', itemImageURL);
 
 describe('Detail Page', () => {
-  const Parent = {
-    data() {
-      return {
-        items: itemsFixture
-      };
-    }
-  };
-
   describe('Default', () => {
+    const store = createStore();
     const wrapper = shallowMount(DetailPage, {
+      store,
       localVue,
-      parentComponent: Parent,
       propsData: {
         detailId: '4'
       }
+    });
+
+    it('should render the component', () => {
+      expect(wrapper.element).toMatchSnapshot();
     });
 
     it('should render the component', () => {
@@ -39,8 +36,9 @@ describe('Detail Page', () => {
     });
   });
 
-  describe('Created', () => {
+  describe('Wrong route', () => {
     const localVue = createLocalVue();
+    const store = createStore();
 
     const pushHandler = jest.fn();
     const $router = {
@@ -48,8 +46,8 @@ describe('Detail Page', () => {
     };
 
     mount(DetailPage, {
+      store,
       localVue,
-      parentComponent: Parent,
       propsData: {
         detailId: 'abs'
       },

@@ -1,8 +1,9 @@
 import Vue from 'vue';
 import App from './App.vue';
 import router from './router';
+import store from './store';
 
-import items, { itemImageURL } from './items';
+import { itemImageURL } from './items';
 
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -16,6 +17,6 @@ Vue.filter('imageSRC', itemImageURL);
 
 new Vue({
   router,
-  data: { items },
+  store,
   render: (h) => h(App)
 }).$mount('#app');

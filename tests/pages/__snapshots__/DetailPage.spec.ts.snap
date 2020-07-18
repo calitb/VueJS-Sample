@@ -18,3 +18,22 @@ exports[`Detail Page Default should render the component 1`] = `
   />
 </div>
 `;
+
+exports[`Detail Page Default should render the component 2`] = `
+<div>
+  <b-card-stub
+    bodytag="div"
+    class="mb-2"
+    footertag="div"
+    headertag="div"
+    imgalt="Image"
+    imgsrc="https://img.pokemondb.net/artwork/charmander.jpg"
+    imgtop="true"
+    subtitletag="h6"
+    subtitletextvariant="muted"
+    tag="div"
+    title="Charmander"
+    titletag="h4"
+  />
+</div>
+`;
