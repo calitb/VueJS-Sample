@@ -11,7 +11,7 @@ import { fetchItems } from '@/store/actions';
 export default Vue.extend({
   name: 'App',
   created() {
-    this.$store.dispatch(fetchItems());
+    this.$tstore.dispatch('aa');
   }
 });
 </script>
