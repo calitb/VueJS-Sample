@@ -10,7 +10,7 @@ exports[`Minimal Layout Logged should render the component 1`] = `
       href="/"
       target="_self"
     >
-      Vue Tutorial
+      VueJS Tutorial
     </a>
      
     <button
@@ -70,7 +70,7 @@ exports[`Minimal Layout Not logged should render the component 1`] = `
       tag="div"
       target="_self"
     >
-      Vue Tutorial
+      VueJS Tutorial
     </b-navbar-brand-stub>
      
     <!---->

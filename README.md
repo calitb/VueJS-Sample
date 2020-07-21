@@ -1,4 +1,5 @@
-![Tests](https://github.com/calitb/VueJS-Sample/workflows/Tests/badge.svg)
+![Deploy Production](https://github.com/calitb/VueJS-Sample/workflows/Deploy%20Production/badge.svg)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/21208728-57ac-4c79-af80-d3397f68d5bc/deploy-status)](https://app.netlify.com/sites/thirsty-easley-66d0cc/deploys)
 
 # VueJS Sample
 
