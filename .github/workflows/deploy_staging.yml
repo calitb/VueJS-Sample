@@ -1,7 +1,7 @@
-name: Deploy Production
+name: Deploy Staging
 
 on:
-  push:
+  pull_request:
     branches:
       - master
 
@@ -33,10 +33,20 @@ jobs:
         env:
           CI: true
 
-      - name: Deploy to netlify
+      - name: Deploy to Netlify
+        id: deploy-neflify
         uses: netlify/actions/cli@master
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         with:
-          args: deploy --dir=dist --prod
+          args: deploy --dir=dist
+
+      - name: Netlify Preview URL
+        uses: unsplash/comment-on-pr@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NETLIFY_URL: ${{ steps.deploy-neflify.outputs.NETLIFY_URL }}
+        with:
+          msg: ${{ env.NETLIFY_URL }}
+          check_for_duplicate_msg: false
