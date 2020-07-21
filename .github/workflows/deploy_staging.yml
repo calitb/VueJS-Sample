@@ -47,6 +47,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NETLIFY_URL: ${{ steps.deploy-neflify.outputs.NETLIFY_URL }}
+          NETLIFY_LOGS_URL: ${{ steps.deploy-neflify.outputs.NETLIFY_LOGS_URL }}
+          OUTPUT: "${{ steps.deploy-neflify.outputs.NETLIFY_LOGS_URL }} \n ${{ steps.deploy-neflify.outputs.NETLIFY_URL }}"
         with:
-          msg: ${{ env.NETLIFY_URL }}
+          msg: ${{ env.OUTPUT }}
           check_for_duplicate_msg: false
