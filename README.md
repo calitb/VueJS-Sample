@@ -1,3 +1,5 @@
+![Tests](https://github.com/calitb/VueJS-Sample/workflows/Tests/badge.svg)
+
 # VueJS Sample
 
 ## Project setup
