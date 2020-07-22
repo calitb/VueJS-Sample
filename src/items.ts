@@ -22,7 +22,12 @@ export const itemsFixture = [
 
 export function itemImageURL(item?: Item): string {
   if (!item) return '';
-  return `https://img.pokemondb.net/artwork/${item.name.toLowerCase()}.jpg`;
+  const itemName = item.name
+    .replace("'", '')
+    .replace('.', '')
+    .replace(' ', '-')
+    .toLowerCase();
+  return `https://img.pokemondb.net/artwork/${itemName}.jpg`;
 }
 
 export default pokemons;
