@@ -1,4 +1,4 @@
-import { shallowMount } from '@vue/test-utils';
+import { shallowMount, mount, RouterLinkStub } from '@vue/test-utils';
 import ListPage from '@/pages/ListPage.vue';
 import { itemImageURL, itemsFixture } from '@/items';
 
@@ -9,7 +9,13 @@ localVue.filter('imageSRC', itemImageURL);
 describe('List Page', () => {
   describe('Default', () => {
     const store = createStore({ items: itemsFixture });
-    const wrapper = shallowMount(ListPage, { localVue, store });
+    const wrapper = shallowMount(ListPage, {
+      localVue,
+      store,
+      stubs: {
+        'router-link': true
+      }
+    });
 
     it('should render the component', () => {
       expect(wrapper.element).toMatchSnapshot();
@@ -28,14 +34,28 @@ describe('List Page', () => {
 
     it('should render the name', () => {
       const items = wrapper.findAll('b-list-group-item-stub');
-      const image = items.at(1).find('b-link-stub');
+      const image = items.at(1).find('router-link-stub');
       expect(image.text()).toBe('Charmeleon');
+    });
+  });
+
+  describe('Links', () => {
+    const store = createStore({ items: itemsFixture });
+    const wrapper = mount(ListPage, {
+      localVue,
+      store,
+      stubs: {
+        RouterLink: RouterLinkStub
+      }
     });
 
     it('should render the link', () => {
-      const items = wrapper.findAll('b-list-group-item-stub');
-      const link = items.at(2).find('b-link-stub');
-      expect(link.attributes().href).toBe('/detail/6');
+      expect(
+        wrapper
+          .findAllComponents(RouterLinkStub)
+          .at(2)
+          .props().to
+      ).toEqual({ name: 'detail', params: { detailId: '6' } });
     });
   });
 });

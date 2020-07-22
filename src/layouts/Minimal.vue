@@ -1,7 +1,9 @@
 <template>
   <div>
     <b-navbar toggleable="lg" type="dark" variant="dark">
-      <b-navbar-brand href="/">VueJS Tutorial</b-navbar-brand>
+      <router-link :to="{ name: 'list' }">
+        <b-navbar-brand>VueJS Tutorial</b-navbar-brand>
+      </router-link>
       <b-navbar-toggle v-if="authenticated()" target="nav-collapse"></b-navbar-toggle>
       <b-collapse v-if="authenticated()" id="nav-collapse" is-nav>
         <b-navbar-nav class="ml-auto">

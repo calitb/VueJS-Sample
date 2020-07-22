@@ -4,7 +4,7 @@
       <b-list-group>
         <b-list-group-item v-for="item in $store.state.items" :key="item.id">
           <img :src="item | imageSRC" width="52px" height="52px" />
-          <b-link :href="'/detail/' + item.id">{{ item.name }}</b-link>
+          <router-link :to="{ name: 'detail', params: { detailId: item.id } }">{{ item.name }}</router-link>
         </b-list-group-item>
       </b-list-group>
     </b-card>

@@ -5,12 +5,12 @@ exports[`Minimal Layout Logged should render the component 1`] = `
   <nav
     class="navbar navbar-dark bg-dark navbar-expand-lg"
   >
-    <a
-      class="navbar-brand"
-      href="/"
-      target="_self"
-    >
-      VueJS Tutorial
+    <a>
+      <div
+        class="navbar-brand"
+      >
+        VueJS Tutorial
+      </div>
     </a>
      
     <button
@@ -65,13 +65,19 @@ exports[`Minimal Layout Not logged should render the component 1`] = `
     type="dark"
     variant="dark"
   >
-    <b-navbar-brand-stub
-      href="/"
-      tag="div"
-      target="_self"
+    <router-link-stub
+      ariacurrentvalue="page"
+      event="click"
+      tag="a"
+      to="[object Object]"
     >
-      VueJS Tutorial
-    </b-navbar-brand-stub>
+      <b-navbar-brand-stub
+        tag="div"
+        target="_self"
+      >
+        VueJS Tutorial
+      </b-navbar-brand-stub>
+    </router-link-stub>
      
     <!---->
      
