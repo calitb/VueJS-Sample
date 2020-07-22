@@ -86,6 +86,9 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
+  if (to.name !== 'detail' && store.state.currentItemId) {
+    store.commit(setCurrentItemiD(undefined));
+  }
   const AUTHENTICATED = getItem('SESSION');
   if (to.matched.find((record) => record.meta.requireAuth)) {
     if (!AUTHENTICATED) {
