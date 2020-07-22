@@ -44,7 +44,7 @@ jobs:
 
       - name: Get site name
         env:
-          NETLIFY_PREVIEW: ${{ steps.deploy-neflify.outputs.NETLIFY_URL }}
+          NETLIFY_PREVIEW: "${{ steps.deploy-neflify.outputs.NETLIFY_URL }}"
         run: echo ::set-env name=SITE_NAME::$(echo ${NETLIFY_PREVIEW:8:-13})
 
       - name: Waiting for 200 from the Netlify Preview
