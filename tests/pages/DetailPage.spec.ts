@@ -1,4 +1,4 @@
-import { shallowMount, mount } from '@vue/test-utils';
+import { shallowMount } from '@vue/test-utils';
 import DetailPage from '@/pages/DetailPage.vue';
 import { itemImageURL } from '@/items';
 
@@ -11,14 +11,7 @@ describe('Detail Page', () => {
     const store = createStore({ currentItemId: '004', items: [{ id: '4', name: 'Charmander' }] });
     const wrapper = shallowMount(DetailPage, {
       store,
-      localVue,
-      propsData: {
-        detailId: '4'
-      }
-    });
-
-    it('should render the component', () => {
-      expect(wrapper.element).toMatchSnapshot();
+      localVue
     });
 
     it('should render the component', () => {
@@ -38,27 +31,20 @@ describe('Detail Page', () => {
 
   describe('Wrong route', () => {
     const localVue = createLocalVue();
-    const store = createStore();
+    const store = createStore({ currentItemId: '006', items: [{ id: '4', name: 'Charmander' }] });
 
-    const pushHandler = jest.fn();
-    const $router = {
-      push: pushHandler
-    };
-
-    mount(DetailPage, {
+    const wrapper = shallowMount(DetailPage, {
       store,
-      localVue,
-      propsData: {
-        detailId: 'abs'
-      },
-      mocks: {
-        $router
-      }
+      localVue
     });
 
-    it('should handle an invalid prop type', () => {
-      expect(pushHandler).toBeCalledTimes(1);
-      expect(pushHandler).toBeCalledWith({ name: 'error' });
+    it('should render the component', () => {
+      expect(wrapper.element).toMatchSnapshot();
+    });
+
+    it('should render an error message', () => {
+      const content = wrapper.find('div');
+      expect(content.text()).toBe('NO EXISTE');
     });
   });
 });
