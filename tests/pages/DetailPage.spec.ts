@@ -8,7 +8,7 @@ localVue.filter('imageSRC', itemImageURL);
 
 describe('Detail Page', () => {
   describe('Default', () => {
-    const store = createStore();
+    const store = createStore({ currentItemId: '004', items: [{ id: '4', name: 'Charmander' }] });
     const wrapper = shallowMount(DetailPage, {
       store,
       localVue,

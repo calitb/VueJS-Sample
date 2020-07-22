@@ -6,7 +6,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { Item } from '@/items';
+import { mapGetters } from 'vuex';
 
 export default Vue.extend({
   name: 'app-detalle',
@@ -14,9 +14,7 @@ export default Vue.extend({
     detailId: String
   },
   computed: {
-    item(): Item | undefined {
-      return this.$store.getters.getItemById(this.detailId);
-    }
+    ...mapGetters({ item: 'currentItem' })
   },
   created() {
     if (isNaN(Number(this.detailId))) {
