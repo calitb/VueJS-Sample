@@ -1,6 +1,9 @@
 import Vue from 'vue';
 import VueRouter, { RouteConfig } from 'vue-router';
 
+import store from '@/store';
+import { setCurrentItemiD } from '@/store/mutations';
+
 import { getItem } from '@/utils/Storage';
 
 import LoginPage from '@/pages/LoginPage.vue';
@@ -51,7 +54,11 @@ const routes: RouteConfig[] = [
         path: ':detailId',
         component: DetailPage,
         name: 'detail',
-        props: true
+        props: true,
+        beforeEnter: (to, from, next) => {
+          store.commit(setCurrentItemiD(to.params.detailId));
+          next();
+        }
       }
     ],
     meta: {
@@ -79,6 +86,9 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
+  if (to.name !== 'detail' && store.state.currentItemId) {
+    store.commit(setCurrentItemiD(undefined));
+  }
   const AUTHENTICATED = getItem('SESSION');
   if (to.matched.find((record) => record.meta.requireAuth)) {
     if (!AUTHENTICATED) {

@@ -5,13 +5,13 @@ import { itemsFixture } from '@/items';
 describe('getters', () => {
   describe('SET_ITEMS_MUTATION', () => {
     it('should return the right value if available', () => {
-      const state: State = { items: itemsFixture };
-      expect(getters.getItemById(state)('005')?.name).toBe('Charmeleon');
+      const state: State = { items: itemsFixture, currentItemId: '005' };
+      expect(getters.currentItem(state)?.name).toBe('Charmeleon');
     });
 
     it('should return undefined when unavailable', () => {
       const state: State = { items: itemsFixture };
-      expect(getters.getItemById(state)('abc')).toBe(undefined);
+      expect(getters.currentItem(state)).toBe(undefined);
     });
   });
 });
