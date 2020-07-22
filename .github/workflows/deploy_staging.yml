@@ -42,6 +42,18 @@ jobs:
         with:
           args: deploy --dir=dist
 
+      - name: Get site name
+        env:
+          NETLIFY_PREVIEW: steps.deploy-neflify.outputs.NETLIFY_URL
+        run: echo ::set-env name=SITE_NAME::$(echo ${NETLIFY_PREVIEW:8:-13})
+
+      - name: Waiting for 200 from the Netlify Preview
+        uses: jakepartusch/wait-for-netlify-action@v1
+        id: waitFor200
+        with:
+          site_name: "${{ SITE_NAME }}"
+          max_timeout: 60
+
       - name: Netlify Preview URL
         uses: unsplash/comment-on-pr@master
         env:
