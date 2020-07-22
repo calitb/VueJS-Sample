@@ -1,4 +1,4 @@
-import { shallowMount, mount, Wrapper } from '@vue/test-utils';
+import { shallowMount, mount, Wrapper, RouterLinkStub } from '@vue/test-utils';
 import Minimal from '@/layouts/Minimal.vue';
 
 import { createLocalVue } from '../utils';
@@ -68,7 +68,8 @@ describe('Minimal Layout', () => {
       wrapper = mount(Minimal, {
         localVue,
         stubs: {
-          'router-view': true
+          'router-view': true,
+          RouterLink: RouterLinkStub
         },
         mocks: {
           $router
@@ -102,6 +103,10 @@ describe('Minimal Layout', () => {
 
       expect(pushHandler).toBeCalledTimes(1);
       expect(pushHandler).toBeCalledWith({ name: 'login' });
+    });
+
+    it('should render the link to home', () => {
+      expect(wrapper.findComponent(RouterLinkStub).props().to).toEqual({ name: 'list' });
     });
   });
 });

@@ -24,14 +24,11 @@ exports[`List Page Default should render the component 1`] = `
           width="52px"
         />
          
-        <b-link-stub
-          event="click"
-          href="/detail/4"
-          routertag="a"
-          target="_self"
+        <router-link-stub
+          to="[object Object]"
         >
           Charmander
-        </b-link-stub>
+        </router-link-stub>
       </b-list-group-item-stub>
       <b-list-group-item-stub
         tag="div"
@@ -43,14 +40,11 @@ exports[`List Page Default should render the component 1`] = `
           width="52px"
         />
          
-        <b-link-stub
-          event="click"
-          href="/detail/5"
-          routertag="a"
-          target="_self"
+        <router-link-stub
+          to="[object Object]"
         >
           Charmeleon
-        </b-link-stub>
+        </router-link-stub>
       </b-list-group-item-stub>
       <b-list-group-item-stub
         tag="div"
@@ -62,14 +56,11 @@ exports[`List Page Default should render the component 1`] = `
           width="52px"
         />
          
-        <b-link-stub
-          event="click"
-          href="/detail/6"
-          routertag="a"
-          target="_self"
+        <router-link-stub
+          to="[object Object]"
         >
           Charizard
-        </b-link-stub>
+        </router-link-stub>
       </b-list-group-item-stub>
     </b-list-group-stub>
   </b-card-stub>
