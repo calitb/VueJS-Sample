@@ -7,7 +7,7 @@ jest.mock('axios');
 
 describe('API getItems', () => {
   describe('success', () => {
-    const response = { data: [ itemsFixture ] };
+    const response = { data: itemsFixture };
 
     beforeAll(() => {
       const mockedAxios = axios as jest.Mocked<AxiosStatic>;
