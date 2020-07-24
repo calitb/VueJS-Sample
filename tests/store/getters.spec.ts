@@ -1,6 +1,6 @@
 import getters from '@/store/getters';
 import { State } from '@/store/state';
-import { itemsFixture } from '@/items';
+import itemsFixture from '../fixtures/items';
 
 describe('getters', () => {
   describe('SET_ITEMS_MUTATION', () => {

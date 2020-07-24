@@ -1,11 +1,9 @@
 import { shallowMount } from '@vue/test-utils';
 import DetailPage from '@/pages/DetailPage.vue';
-import { itemImageURL } from '@/items';
 import Vuex from 'vuex';
 
 import { createLocalVue } from '../utils';
 const localVue = createLocalVue();
-localVue.filter('imageSRC', itemImageURL);
 
 describe('Detail Page', () => {
   describe('Default', () => {

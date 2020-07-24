@@ -3,7 +3,7 @@ import actions, { fetchItems } from '@/store/actions';
 import { setItems } from '@/store/mutations';
 import { State } from '@/store/state';
 
-import { itemsFixture } from '@/items';
+import itemsFixture from '../fixtures/items';
 import * as getItems from '@/api/getItems';
 
 describe('actions', () => {

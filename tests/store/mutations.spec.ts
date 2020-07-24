@@ -1,6 +1,6 @@
 import mutations, { setItems, setCurrentItemiD } from '@/store/mutations';
 import { State } from '@/store/state';
-import { itemsFixture } from '@/items';
+import itemsFixture from '../fixtures/items';
 
 describe('mutations', () => {
   describe('SET_ITEMS_MUTATION', () => {
