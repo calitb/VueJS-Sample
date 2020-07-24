@@ -1,14 +1,20 @@
 import { shallowMount, mount, RouterLinkStub } from '@vue/test-utils';
 import ListPage from '@/pages/ListPage.vue';
 import { itemImageURL, itemsFixture } from '@/items';
+import Vuex from 'vuex';
 
-import { createLocalVue, createStore } from '../utils';
+import { createLocalVue } from '../utils';
 const localVue = createLocalVue();
 localVue.filter('imageSRC', itemImageURL);
 
 describe('List Page', () => {
   describe('Default', () => {
-    const store = createStore({ items: itemsFixture });
+    const store = new Vuex.Store({
+      state: {
+        items: itemsFixture
+      }
+    });
+
     const wrapper = shallowMount(ListPage, {
       localVue,
       store,
@@ -40,7 +46,11 @@ describe('List Page', () => {
   });
 
   describe('Links', () => {
-    const store = createStore({ items: itemsFixture });
+    const store = new Vuex.Store({
+      state: {
+        items: itemsFixture
+      }
+    });
     const wrapper = mount(ListPage, {
       localVue,
       store,

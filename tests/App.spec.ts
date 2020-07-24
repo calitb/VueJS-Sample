@@ -1,15 +1,19 @@
 import { mount } from '@vue/test-utils';
 import App from '@/App.vue';
 
-import { createLocalVue, createStore } from './utils';
+import Vuex from 'vuex';
+import { createLocalVue } from './utils';
 
 describe('App', () => {
   describe('Default', () => {
     const fetchItemsAction = jest.fn();
     const localVue = createLocalVue();
-    const store = createStore(undefined, {
-      ['FETCH_ITEMS_ACTION']: fetchItemsAction
+    const store = new Vuex.Store({
+      actions: {
+        ['FETCH_ITEMS_ACTION']: fetchItemsAction
+      }
     });
+
     const wrapper = mount(App, {
       localVue,
       store,

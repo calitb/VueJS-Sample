@@ -1,14 +1,22 @@
 import { shallowMount } from '@vue/test-utils';
 import DetailPage from '@/pages/DetailPage.vue';
 import { itemImageURL } from '@/items';
+import Vuex from 'vuex';
 
-import { createLocalVue, createStore } from '../utils';
+import { createLocalVue } from '../utils';
 const localVue = createLocalVue();
 localVue.filter('imageSRC', itemImageURL);
 
 describe('Detail Page', () => {
   describe('Default', () => {
-    const store = createStore({ currentItemId: '004', items: [{ id: '4', name: 'Charmander' }] });
+    const store = new Vuex.Store({
+      getters: {
+        currentItem() {
+          return { id: '4', name: 'Charmander' };
+        }
+      }
+    });
+
     const wrapper = shallowMount(DetailPage, {
       store,
       localVue
@@ -31,7 +39,13 @@ describe('Detail Page', () => {
 
   describe('Wrong route', () => {
     const localVue = createLocalVue();
-    const store = createStore({ currentItemId: '006', items: [{ id: '4', name: 'Charmander' }] });
+    const store = new Vuex.Store({
+      getters: {
+        currentItem() {
+          return undefined;
+        }
+      }
+    });
 
     const wrapper = shallowMount(DetailPage, {
       store,

@@ -1,7 +1,7 @@
 import { State } from './state';
 import { Item } from '@/items';
 
-const getters = {
+export default {
   currentItem: (state: State): Item | undefined => {
     const currentId = state.currentItemId;
     if (currentId) {
@@ -10,7 +10,3 @@ const getters = {
     return undefined;
   }
 };
-
-export type Getters = typeof getters;
-
-export default getters;
