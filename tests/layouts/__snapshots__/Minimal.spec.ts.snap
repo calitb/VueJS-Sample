@@ -1,10 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Minimal Layout Logged should render the component 1`] = `
-<div>
+<div
+  class="flex flex-col"
+>
   <nav
-    class="navbar navbar-dark bg-dark navbar-expand-lg"
+    class="flex flex-wrap bg-gray-800 items-center py-3 px-4"
   >
+<<<<<<< HEAD
     <a>
       <div
         class="navbar-brand"
@@ -12,80 +15,76 @@ exports[`Minimal Layout Logged should render the component 1`] = `
         VueJS Tutorial 2
       </div>
     </a>
+=======
+    <span
+      class="flex items-center py-2 no-underline cursor-pointer text-xl text-white font-bold"
+    >
+      VueJS Tutorial
+    </span>
+>>>>>>> using tailwindCSS
      
     <button
-      aria-controls="nav-collapse"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-      class="navbar-toggler collapsed"
-      type="button"
+      class="material-icons p-2 text-white mr-2 md:hidden ml-auto border rounded border-white focus:outline-none"
     >
-      <span
-        class="navbar-toggler-icon"
-      />
+      menu
     </button>
      
-    <transition-stub
-      css="true"
-      enteractiveclass="collapsing"
-      enterclass=""
-      entertoclass="collapse show"
-      leaveactiveclass="collapsing"
-      leaveclass="collapse show"
-      leavetoclass="collapse"
+    <div
+      class="w-full md:inline-flex md:flex-grow md:w-auto pt-4 md:pt-0 hidden"
     >
       <div
-        class="navbar-collapse collapse"
-        id="nav-collapse"
-        style="display: none;"
+        class="p-2 md:ml-auto md:w-auto md:h-auto text-white rounded hover:border-transparent hover:text-black hover:bg-gray-200 cursor-pointer"
       >
-        <ul
-          class="navbar-nav ml-auto"
-        >
-          <button
-            class="btn btn-outline-light"
-            type="button"
-          >
-            Sign Out
-          </button>
-        </ul>
+        Sign out
       </div>
-    </transition-stub>
+    </div>
   </nav>
    
-  <router-view-stub />
+  <div
+    class="flex flex-1"
+  >
+    <router-view-stub />
+  </div>
 </div>
 `;
 
 exports[`Minimal Layout Not logged should render the component 1`] = `
-<div>
-  <b-navbar-stub
-    tag="nav"
-    toggleable="lg"
-    type="dark"
-    variant="dark"
+<div
+  class="flex flex-col"
+>
+  <nav
+    class="flex flex-wrap bg-gray-800 items-center py-3 px-4"
   >
     <router-link-stub
       ariacurrentvalue="page"
+      class="flex items-center py-2 no-underline cursor-pointer text-xl text-white font-bold"
       event="click"
-      tag="a"
+      tag="span"
       to="[object Object]"
     >
+<<<<<<< HEAD
       <b-navbar-brand-stub
         tag="div"
         target="_self"
       >
         VueJS Tutorial 2
       </b-navbar-brand-stub>
+=======
+      VueJS Tutorial
+>>>>>>> using tailwindCSS
     </router-link-stub>
      
     <!---->
      
     <!---->
-  </b-navbar-stub>
+  </nav>
    
-  <router-view-stub
-    name="default"
-  />
+  <div
+    class="flex flex-1"
+  >
+    <router-view-stub
+      name="default"
+    />
+  </div>
 </div>
 `;

@@ -1,34 +1,55 @@
 <template>
-  <div>
-    <b-navbar toggleable="lg" type="dark" variant="dark">
-      <router-link :to="{ name: 'list' }">
-        <b-navbar-brand>VueJS Tutorial 2</b-navbar-brand>
-      </router-link>
-      <b-navbar-toggle v-if="authenticated()" target="nav-collapse"></b-navbar-toggle>
-      <b-collapse v-if="authenticated()" id="nav-collapse" is-nav>
-        <b-navbar-nav class="ml-auto">
-          <b-button variant="outline-light" @click="logout">Sign Out</b-button>
-        </b-navbar-nav>
-      </b-collapse>
-    </b-navbar>
-    <router-view />
+  <div class="flex flex-col">
+    <nav class="flex flex-wrap bg-gray-800 items-center py-3 px-4">
+      <router-link
+        tag="span"
+        class="flex items-center py-2 no-underline cursor-pointer text-xl text-white font-bold"
+        :to="{ name: 'list' }"
+      >VueJS Tutorial</router-link>
+      <button
+        v-if="authenticated()"
+        @click="toggle"
+        class="material-icons p-2 text-white mr-2 md:hidden ml-auto border rounded border-white focus:outline-none"
+      >menu</button>
+      <div
+        v-if="authenticated()"
+        class="w-full md:inline-flex md:flex-grow md:w-auto pt-4 md:pt-0"
+        :class="[...(!opened ? ['hidden'] : [])]"
+      >
+        <div
+          class="p-2 md:ml-auto md:w-auto md:h-auto text-white rounded hover:border-transparent hover:text-black hover:bg-gray-200 cursor-pointer"
+          @click="logout"
+        >Sign out</div>
+      </div>
+    </nav>
+    <div class="flex flex-1">
+      <router-view />
+    </div>
   </div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import Vue from "vue";
 
-import { getItem, removeItem } from '@/utils/Storage';
+import { getItem, removeItem } from "@/utils/Storage";
 
 export default Vue.extend({
-  name: 'app-layout-minimal',
+  name: "app-layout-minimal",
+  data() {
+    return {
+      opened: false
+    };
+  },
   methods: {
+    toggle() {
+      this.opened = !this.opened;
+    },
     logout(): void {
-      removeItem('SESSION');
-      this.$router.push({ name: 'login' });
+      removeItem("SESSION");
+      this.$router.push({ name: "login" });
     },
     authenticated(): boolean {
-      return getItem('SESSION') !== null;
+      return getItem("SESSION") !== null;
     }
   }
 });

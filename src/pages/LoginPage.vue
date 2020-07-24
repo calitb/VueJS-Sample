@@ -1,36 +1,48 @@
 <template>
-  <div class="container">
-    <b-form>
-      <b-row>
-        <b-col>Username</b-col>
-        <b-col> <b-form-input v-model="username" /> </b-col>
-      </b-row>
-
-      <b-row>
-        <b-col>Password</b-col>
-        <b-col> <b-form-input type="password" v-model="password" /> </b-col>
-      </b-row>
-
-      <b-row>
-        <b-col>
-          <b-button block variant="primary" :disabled="!validated" @click="login">Login</b-button>
-        </b-col>
-      </b-row>
-    </b-form>
+  <div class="flex flex-1 justify-center items-center">
+    <div class="w-full max-w-xs">
+      <form class="bg-gray-300 border rounded border-gray-600 px-8 pt-6 pb-8">
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="username">Username</label>
+          <input
+            class="shadow border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:shadow-outline"
+            v-model="username"
+            type="text"
+            placeholder="Username"
+          />
+        </div>
+        <div class="mb-6">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="password">Password</label>
+          <input
+            class="shadow border rounded w-full py-2 px-3 text-gray-700 mb-3 focus:outline-none focus:shadow-outline"
+            v-model="password"
+            type="password"
+            placeholder="Password"
+          />
+        </div>
+        <div class="flex items-center justify-between">
+          <button
+            class="flex-1 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            type="button"
+            @click="login"
+          >Sign In</button>
+        </div>
+      </form>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import Vue from "vue";
 
-import { setItem } from '@/utils/Storage';
+import { setItem } from "@/utils/Storage";
 
 export default Vue.extend({
-  name: 'LoginPage',
+  name: "LoginPage",
   data() {
     return {
-      username: '',
-      password: ''
+      username: "",
+      password: ""
     };
   },
   computed: {
@@ -40,8 +52,8 @@ export default Vue.extend({
   },
   methods: {
     login(): void {
-      setItem('SESSION', 'true');
-      this.$router.push({ name: 'list' });
+      setItem("SESSION", "true");
+      this.$router.push({ name: "list" });
     }
   }
 });

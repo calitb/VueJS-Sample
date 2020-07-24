@@ -1,68 +1,74 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`List Page Default should render the component 1`] = `
-<div>
-  <b-card-stub
-    bodytag="div"
-    footertag="div"
-    headertag="div"
-    subtitletag="h6"
-    subtitletextvariant="muted"
-    tag="div"
-    titletag="h4"
+<div
+  class="flex flex-wrap m-4"
+>
+  <article
+    class="p-3 border border-blue-200"
   >
-    <b-list-group-stub
-      tag="div"
+    <div
+      class="flex justify-center items-center w-32 h-32"
     >
-      <b-list-group-item-stub
-        tag="div"
-        target="_self"
+      <img
+        class="w-auto h-24"
+        src="https://img.pokemondb.net/artwork/charmander.jpg"
+      />
+    </div>
+     
+    <div
+      class="flex justify-center"
+    >
+      <router-link-stub
+        to="[object Object]"
       >
-        <img
-          height="52px"
-          src="https://img.pokemondb.net/artwork/charmander.jpg"
-          width="52px"
-        />
-         
-        <router-link-stub
-          to="[object Object]"
-        >
-          Charmander
-        </router-link-stub>
-      </b-list-group-item-stub>
-      <b-list-group-item-stub
-        tag="div"
-        target="_self"
+        Charmander
+      </router-link-stub>
+    </div>
+  </article>
+  <article
+    class="p-3 border border-blue-200"
+  >
+    <div
+      class="flex justify-center items-center w-32 h-32"
+    >
+      <img
+        class="w-auto h-24"
+        src="https://img.pokemondb.net/artwork/charmeleon.jpg"
+      />
+    </div>
+     
+    <div
+      class="flex justify-center"
+    >
+      <router-link-stub
+        to="[object Object]"
       >
-        <img
-          height="52px"
-          src="https://img.pokemondb.net/artwork/charmeleon.jpg"
-          width="52px"
-        />
-         
-        <router-link-stub
-          to="[object Object]"
-        >
-          Charmeleon
-        </router-link-stub>
-      </b-list-group-item-stub>
-      <b-list-group-item-stub
-        tag="div"
-        target="_self"
+        Charmeleon
+      </router-link-stub>
+    </div>
+  </article>
+  <article
+    class="p-3 border border-blue-200"
+  >
+    <div
+      class="flex justify-center items-center w-32 h-32"
+    >
+      <img
+        class="w-auto h-24"
+        src="https://img.pokemondb.net/artwork/charizard.jpg"
+      />
+    </div>
+     
+    <div
+      class="flex justify-center"
+    >
+      <router-link-stub
+        to="[object Object]"
       >
-        <img
-          height="52px"
-          src="https://img.pokemondb.net/artwork/charizard.jpg"
-          width="52px"
-        />
-         
-        <router-link-stub
-          to="[object Object]"
-        >
-          Charizard
-        </router-link-stub>
-      </b-list-group-item-stub>
-    </b-list-group-stub>
-  </b-card-stub>
+        Charizard
+      </router-link-stub>
+    </div>
+  </article>
 </div>
 `;
