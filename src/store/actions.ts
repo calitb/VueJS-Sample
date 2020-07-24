@@ -10,7 +10,7 @@ export function fetchItems(): FETCH_ITEMS_ACTION {
   return { type: 'FETCH_ITEMS_ACTION' };
 }
 
-const actions = {
+export default {
   ['FETCH_ITEMS_ACTION'](context: ActionContext<State, State>, payload: FETCH_ITEMS_ACTION) {
     getItems((error, data) => {
       if (!error && data) {
@@ -19,7 +19,3 @@ const actions = {
     });
   }
 };
-
-export type Actions = typeof actions;
-
-export default actions;
