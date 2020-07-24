@@ -1,6 +1,6 @@
 import { Item } from '@/items';
 
-const items: Item = [
+const items: Item[] = [
   {
     id: '4',
     name: 'Charmander'
