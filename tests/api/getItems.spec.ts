@@ -1,27 +1,13 @@
 import axios, { AxiosStatic } from 'axios';
 
 import getItems from '@/api/getItems';
+import itemsFixture from '../fixtures/items';
 
 jest.mock('axios');
 
 describe('API getItems', () => {
   describe('success', () => {
-    const response = {
-      data: [
-        {
-          id: '4',
-          name: 'Charmander'
-        },
-        {
-          id: '5',
-          name: 'Charmeleon'
-        },
-        {
-          id: '6',
-          name: 'Charizard'
-        }
-      ]
-    };
+    const response = { data: itemsFixture };
 
     beforeAll(() => {
       const mockedAxios = axios as jest.Mocked<AxiosStatic>;

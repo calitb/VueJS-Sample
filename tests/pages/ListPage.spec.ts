@@ -1,11 +1,10 @@
 import { shallowMount, mount, RouterLinkStub } from '@vue/test-utils';
 import ListPage from '@/pages/ListPage.vue';
-import { itemImageURL, itemsFixture } from '@/items';
+import itemsFixture from '../fixtures/items';
 import Vuex from 'vuex';
 
 import { createLocalVue } from '../utils';
 const localVue = createLocalVue();
-localVue.filter('imageSRC', itemImageURL);
 
 describe('List Page', () => {
   describe('Default', () => {
