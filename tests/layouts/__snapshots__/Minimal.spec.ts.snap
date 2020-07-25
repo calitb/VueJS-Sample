@@ -5,7 +5,7 @@ exports[`Minimal Layout Logged should render the component 1`] = `
   class="flex flex-col"
 >
   <nav
-    class="flex flex-wrap items-center py-3 px-4"
+    class="flex flex-wrap bg-gray-800 items-center py-3 px-4"
   >
     <span
       class="flex items-center py-2 no-underline cursor-pointer text-xl text-white font-bold"
@@ -48,7 +48,7 @@ exports[`Minimal Layout Not logged should render the component 1`] = `
   class="flex flex-col"
 >
   <nav
-    class="flex flex-wrap items-center py-3 px-4"
+    class="flex flex-wrap bg-gray-800 items-center py-3 px-4"
   >
     <router-link-stub
       ariacurrentvalue="page"
