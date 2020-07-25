@@ -1,85 +1,207 @@
 import axios, { AxiosStatic } from "axios";
-import getItems, { itemImageURL } from "@/api/getItems";
+import {
+  getPokemonItems,
+  getRickAndMortyItems,
+  itemImageURL
+} from "@/api/getItems";
 
 jest.mock("axios");
 
 describe("API getItems", () => {
-  describe("success", () => {
-    const response = {
-      data: [
-        {
-          id: "4",
-          name: "Charmander"
-        },
-        {
-          id: "5",
-          name: "Charmeleon"
-        },
-        {
-          id: "6",
-          name: "Charizard"
-        }
-      ]
-    };
-
-    beforeAll(() => {
-      const mockedAxios = axios as jest.Mocked<AxiosStatic>;
-      mockedAxios.get.mockResolvedValueOnce(response);
-    });
-
-    afterAll(() => {
-      jest.restoreAllMocks();
-    });
-
-    it("fetches successfully data", async () => {
-      const handler = jest.fn();
-      await getItems(handler);
-
-      expect(handler).toBeCalledTimes(1);
-      expect(handler).toBeCalledWith(
-        undefined,
-        [
+  describe("API getPokemonItems", () => {
+    describe("success", () => {
+      const response = {
+        data: [
           {
             id: "4",
-            name: "Charmander",
-            image: "https://img.pokemondb.net/artwork/charmander.jpg"
+            name: "Charmander"
           },
           {
             id: "5",
-            name: "Charmeleon",
-            image: "https://img.pokemondb.net/artwork/charmeleon.jpg"
+            name: "Charmeleon"
           },
           {
             id: "6",
-            name: "Charizard",
-            image: "https://img.pokemondb.net/artwork/charizard.jpg"
+            name: "Charizard"
           }
-        ],
-        response
-      );
+        ]
+      };
+
+      beforeAll(() => {
+        const mockedAxios = axios as jest.Mocked<AxiosStatic>;
+        mockedAxios.get.mockResolvedValueOnce(response);
+      });
+
+      afterAll(() => {
+        jest.restoreAllMocks();
+      });
+
+      it("fetches successfully data", async () => {
+        const handler = jest.fn();
+        await getPokemonItems(handler);
+
+        expect(handler).toBeCalledTimes(1);
+        expect(handler).toBeCalledWith(
+          undefined,
+          [
+            {
+              id: "4",
+              name: "Charmander",
+              image: "https://img.pokemondb.net/artwork/charmander.jpg"
+            },
+            {
+              id: "5",
+              name: "Charmeleon",
+              image: "https://img.pokemondb.net/artwork/charmeleon.jpg"
+            },
+            {
+              id: "6",
+              name: "Charizard",
+              image: "https://img.pokemondb.net/artwork/charizard.jpg"
+            }
+          ],
+          response
+        );
+      });
+    });
+
+    describe("error", () => {
+      const errorMessage = "Network Error";
+      const error = new Error(errorMessage);
+
+      beforeAll(() => {
+        const mockedAxios = axios as jest.Mocked<AxiosStatic>;
+
+        mockedAxios.get.mockRejectedValueOnce(error);
+      });
+
+      afterAll(() => {
+        jest.restoreAllMocks();
+      });
+
+      it("fetches erroneously data from an API", async () => {
+        const handler = jest.fn();
+        await getPokemonItems(handler);
+
+        expect(handler).toBeCalledTimes(1);
+        expect(handler).toBeCalledWith(error, undefined, undefined);
+      });
     });
   });
 
-  describe("error", () => {
-    const errorMessage = "Network Error";
-    const error = new Error(errorMessage);
+  describe("API getRickAndMortyItems", () => {
+    describe("success", () => {
+      const response = {
+        data: {
+          info: {
+            count: 591,
+            pages: 30,
+            next: "https://rickandmortyapi.com/api/character/?page=2",
+            prev: null
+          },
+          results: [
+            {
+              id: 1,
+              name: "Rick Sanchez",
+              image: "https://rickandmortyapi.com/api/character/avatar/1.jpeg"
+            },
+            {
+              id: 2,
+              name: "Morty Smith",
+              image: "https://rickandmortyapi.com/api/character/avatar/2.jpeg"
+            }
+          ]
+        }
+      };
 
-    beforeAll(() => {
-      const mockedAxios = axios as jest.Mocked<AxiosStatic>;
+      const response2 = {
+        data: {
+          info: {
+            count: 591,
+            pages: 30,
+            next: null,
+            prev: "https://rickandmortyapi.com/api/character/?page=1"
+          },
+          results: [
+            {
+              id: 3,
+              name: "Summer Smith",
+              image: "https://rickandmortyapi.com/api/character/avatar/3.jpeg"
+            },
+            {
+              id: 4,
+              name: "Beth Smith",
+              image: "https://rickandmortyapi.com/api/character/avatar/4.jpeg"
+            }
+          ]
+        }
+      };
 
-      mockedAxios.get.mockRejectedValueOnce(error);
+      beforeAll(() => {
+        const mockedAxios = axios as jest.Mocked<AxiosStatic>;
+        mockedAxios.get.mockResolvedValueOnce(response);
+        mockedAxios.get.mockResolvedValueOnce(response2);
+      });
+
+      afterAll(() => {
+        jest.restoreAllMocks();
+      });
+
+      it("fetches successfully data", async () => {
+        const handler = jest.fn();
+        await getRickAndMortyItems(handler);
+
+        expect(handler).toBeCalledTimes(1);
+        expect(handler).toBeCalledWith(
+          undefined,
+          [
+            {
+              id: 1,
+              name: "Rick Sanchez",
+              image: "https://rickandmortyapi.com/api/character/avatar/1.jpeg"
+            },
+            {
+              id: 2,
+              name: "Morty Smith",
+              image: "https://rickandmortyapi.com/api/character/avatar/2.jpeg"
+            },
+            {
+              id: 3,
+              name: "Summer Smith",
+              image: "https://rickandmortyapi.com/api/character/avatar/3.jpeg"
+            },
+            {
+              id: 4,
+              name: "Beth Smith",
+              image: "https://rickandmortyapi.com/api/character/avatar/4.jpeg"
+            }
+          ],
+          response
+        );
+      });
     });
 
-    afterAll(() => {
-      jest.restoreAllMocks();
-    });
+    describe("error", () => {
+      const errorMessage = "Network Error";
+      const error = new Error(errorMessage);
 
-    it("fetches erroneously data from an API", async () => {
-      const handler = jest.fn();
-      await getItems(handler);
+      beforeAll(() => {
+        const mockedAxios = axios as jest.Mocked<AxiosStatic>;
 
-      expect(handler).toBeCalledTimes(1);
-      expect(handler).toBeCalledWith(error, undefined, undefined);
+        mockedAxios.get.mockRejectedValueOnce(error);
+      });
+
+      afterAll(() => {
+        jest.restoreAllMocks();
+      });
+
+      it("fetches erroneously data from an API", async () => {
+        const handler = jest.fn();
+        await getRickAndMortyItems(handler);
+
+        expect(handler).toBeCalledTimes(1);
+        expect(handler).toBeCalledWith(error, undefined, undefined);
+      });
     });
   });
 });
