@@ -2,73 +2,73 @@
 
 exports[`List Page Default should render the component 1`] = `
 <div
-  class="flex flex-wrap m-4"
+  class="flex flex-wrap m-4 justify-center"
 >
-  <article
-    class="p-3 border border-blue-200"
+  <router-link-stub
+    to="[object Object]"
   >
-    <div
-      class="flex justify-center items-center w-32 h-32"
+    <article
+      class="p-3 border border-blue-200 hover:border-blue-800"
     >
-      <img
-        class="w-auto h-24"
-        src="https://img.pokemondb.net/artwork/charmander.jpg"
-      />
-    </div>
-     
-    <div
-      class="flex justify-center"
-    >
-      <router-link-stub
-        to="[object Object]"
+      <div
+        class="flex justify-center items-center w-32 h-32"
+      >
+        <img
+          class="w-auto h-24"
+          src="https://img.pokemondb.net/artwork/charmander.jpg"
+        />
+      </div>
+       
+      <div
+        class="flex justify-center"
       >
         Charmander
-      </router-link-stub>
-    </div>
-  </article>
-  <article
-    class="p-3 border border-blue-200"
+      </div>
+    </article>
+  </router-link-stub>
+  <router-link-stub
+    to="[object Object]"
   >
-    <div
-      class="flex justify-center items-center w-32 h-32"
+    <article
+      class="p-3 border border-blue-200 hover:border-blue-800"
     >
-      <img
-        class="w-auto h-24"
-        src="https://img.pokemondb.net/artwork/charmeleon.jpg"
-      />
-    </div>
-     
-    <div
-      class="flex justify-center"
-    >
-      <router-link-stub
-        to="[object Object]"
+      <div
+        class="flex justify-center items-center w-32 h-32"
+      >
+        <img
+          class="w-auto h-24"
+          src="https://img.pokemondb.net/artwork/charmeleon.jpg"
+        />
+      </div>
+       
+      <div
+        class="flex justify-center"
       >
         Charmeleon
-      </router-link-stub>
-    </div>
-  </article>
-  <article
-    class="p-3 border border-blue-200"
+      </div>
+    </article>
+  </router-link-stub>
+  <router-link-stub
+    to="[object Object]"
   >
-    <div
-      class="flex justify-center items-center w-32 h-32"
+    <article
+      class="p-3 border border-blue-200 hover:border-blue-800"
     >
-      <img
-        class="w-auto h-24"
-        src="https://img.pokemondb.net/artwork/charizard.jpg"
-      />
-    </div>
-     
-    <div
-      class="flex justify-center"
-    >
-      <router-link-stub
-        to="[object Object]"
+      <div
+        class="flex justify-center items-center w-32 h-32"
+      >
+        <img
+          class="w-auto h-24"
+          src="https://img.pokemondb.net/artwork/charizard.jpg"
+        />
+      </div>
+       
+      <div
+        class="flex justify-center"
       >
         Charizard
-      </router-link-stub>
-    </div>
-  </article>
+      </div>
+    </article>
+  </router-link-stub>
 </div>
 `;

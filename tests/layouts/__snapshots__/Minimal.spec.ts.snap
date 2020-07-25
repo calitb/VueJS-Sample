@@ -7,21 +7,11 @@ exports[`Minimal Layout Logged should render the component 1`] = `
   <nav
     class="flex flex-wrap bg-gray-800 items-center py-3 px-4"
   >
-<<<<<<< HEAD
-    <a>
-      <div
-        class="navbar-brand"
-      >
-        VueJS Tutorial 2
-      </div>
-    </a>
-=======
     <span
       class="flex items-center py-2 no-underline cursor-pointer text-xl text-white font-bold"
     >
       VueJS Tutorial
     </span>
->>>>>>> using tailwindCSS
      
     <button
       class="material-icons p-2 text-white mr-2 md:hidden ml-auto border rounded border-white focus:outline-none"
@@ -31,12 +21,13 @@ exports[`Minimal Layout Logged should render the component 1`] = `
      
     <div
       class="w-full md:inline-flex md:flex-grow md:w-auto pt-4 md:pt-0 hidden"
+      id="menu"
     >
-      <div
-        class="p-2 md:ml-auto md:w-auto md:h-auto text-white rounded hover:border-transparent hover:text-black hover:bg-gray-200 cursor-pointer"
+      <button
+        class="p-2 w-full text-left md:ml-auto md:w-auto md:h-auto text-white rounded hover:border-transparent hover:text-black hover:bg-gray-200 cursor-pointer"
       >
         Sign out
-      </div>
+      </button>
     </div>
   </nav>
    
@@ -62,16 +53,7 @@ exports[`Minimal Layout Not logged should render the component 1`] = `
       tag="span"
       to="[object Object]"
     >
-<<<<<<< HEAD
-      <b-navbar-brand-stub
-        tag="div"
-        target="_self"
-      >
-        VueJS Tutorial 2
-      </b-navbar-brand-stub>
-=======
       VueJS Tutorial
->>>>>>> using tailwindCSS
     </router-link-stub>
      
     <!---->

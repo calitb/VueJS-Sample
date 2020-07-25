@@ -1,3 +1,4 @@
+import Vue from "vue";
 import { shallowMount, mount, Wrapper } from "@vue/test-utils";
 import LoginPage from "@/pages/LoginPage.vue";
 
@@ -15,12 +16,12 @@ describe("Login Page", () => {
     });
 
     it("should render a form", () => {
-      const form = wrapper.find("b-form");
+      const form = wrapper.find("form");
       expect(form.exists()).toBeTruthy();
     });
 
     it("should render two inputs", () => {
-      const form = wrapper.find("b-form");
+      const form = wrapper.find("form");
       const inputs = form.findAll("input");
       expect(inputs).toHaveLength(2);
     });
@@ -30,7 +31,7 @@ describe("Login Page", () => {
       const button = form.find("button");
       expect(button.exists()).toBeTruthy();
 
-      expect(button.attributes().disabled).toBe("true");
+      expect(button.attributes().disabled).toBe("disabled");
     });
 
     it("should not render a message", () => {
@@ -51,14 +52,6 @@ describe("Login Page", () => {
 
     it("should render the component", () => {
       expect(wrapper.element).toMatchSnapshot();
-    });
-
-    it("should render filled fields", () => {
-      const form = wrapper.find("form");
-      const inputs = form.findAll("input");
-
-      expect(inputs.at(0).attributes().value).toBe("asas");
-      expect(inputs.at(1).attributes().value).toBe("12345");
     });
 
     it("should render an enable button", () => {

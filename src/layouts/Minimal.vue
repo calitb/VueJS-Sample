@@ -12,14 +12,15 @@
         class="material-icons p-2 text-white mr-2 md:hidden ml-auto border rounded border-white focus:outline-none"
       >menu</button>
       <div
+        id="menu"
         v-if="authenticated()"
         class="w-full md:inline-flex md:flex-grow md:w-auto pt-4 md:pt-0"
         :class="[...(!opened ? ['hidden'] : [])]"
       >
-        <div
-          class="p-2 md:ml-auto md:w-auto md:h-auto text-white rounded hover:border-transparent hover:text-black hover:bg-gray-200 cursor-pointer"
+        <button
+          class="p-2 w-full text-left md:ml-auto md:w-auto md:h-auto text-white rounded hover:border-transparent hover:text-black hover:bg-gray-200 cursor-pointer"
           @click="logout"
-        >Sign out</div>
+        >Sign out</button>
       </div>
     </nav>
     <div class="flex flex-1">

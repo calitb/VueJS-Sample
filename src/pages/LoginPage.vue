@@ -22,7 +22,9 @@
         </div>
         <div class="flex items-center justify-between">
           <button
-            class="flex-1 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            :disabled="!validated"
+            class="flex-1 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            :class="[...(validated ? ['bg-blue-500', 'hover:bg-blue-700'] : ['bg-gray-600', 'cursor-not-allowed'])]"
             type="button"
             @click="login"
           >Sign In</button>
