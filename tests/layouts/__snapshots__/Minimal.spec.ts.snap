@@ -14,7 +14,7 @@ exports[`Minimal Layout Logged should render the component 1`] = `
     </span>
      
     <button
-      class="material-icons p-2 text-white mr-2 md:hidden ml-auto border rounded border-white focus:outline-none"
+      class="material-icons p-2 mr-2 md:hidden ml-auto border rounded border-white text-white hover:text-black hover:bg-gray-200 focus:outline-none"
     >
       
       menu
@@ -26,7 +26,7 @@ exports[`Minimal Layout Logged should render the component 1`] = `
       id="menu"
     >
       <button
-        class="p-2 w-full text-left md:ml-auto md:w-auto md:h-auto text-white rounded hover:border-transparent hover:text-black hover:bg-gray-200 cursor-pointer"
+        class="p-2 w-full text-left md:ml-auto md:w-auto md:h-auto text-white rounded md:border md:border-white hover:border-transparent hover:text-black hover:bg-gray-200 cursor-pointer"
       >
         
         Sign out

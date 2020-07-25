@@ -5,70 +5,70 @@ exports[`List Page Default should render the component 1`] = `
   class="flex flex-wrap m-4 justify-center"
 >
   <router-link-stub
+    class="p-3 border border-blue-200 hover:border-blue-800 cursor-pointer"
+    tag="article"
     to="[object Object]"
   >
-    <article
-      class="p-3 border border-blue-200 hover:border-blue-800"
+    <div
+      class="flex justify-center items-center w-20 h-20 md:w-32 md:h-32"
     >
-      <div
-        class="flex justify-center items-center w-32 h-32"
-      >
-        <img
-          class="w-auto h-24"
-          src="charmander_image"
-        />
-      </div>
-       
-      <div
-        class="flex justify-center"
-      >
-        Charmander
-      </div>
-    </article>
+      <img
+        class="w-auto h-16 md:h-24"
+        src="charmander_image"
+      />
+    </div>
+     
+    <div
+      class="flex justify-center text-sm md:text-base w-32 text-center"
+    >
+      
+      Charmander
+    
+    </div>
   </router-link-stub>
   <router-link-stub
+    class="p-3 border border-blue-200 hover:border-blue-800 cursor-pointer"
+    tag="article"
     to="[object Object]"
   >
-    <article
-      class="p-3 border border-blue-200 hover:border-blue-800"
+    <div
+      class="flex justify-center items-center w-20 h-20 md:w-32 md:h-32"
     >
-      <div
-        class="flex justify-center items-center w-32 h-32"
-      >
-        <img
-          class="w-auto h-24"
-          src="charmeleon_image"
-        />
-      </div>
-       
-      <div
-        class="flex justify-center"
-      >
-        Charmeleon
-      </div>
-    </article>
+      <img
+        class="w-auto h-16 md:h-24"
+        src="charmeleon_image"
+      />
+    </div>
+     
+    <div
+      class="flex justify-center text-sm md:text-base w-32 text-center"
+    >
+      
+      Charmeleon
+    
+    </div>
   </router-link-stub>
   <router-link-stub
+    class="p-3 border border-blue-200 hover:border-blue-800 cursor-pointer"
+    tag="article"
     to="[object Object]"
   >
-    <article
-      class="p-3 border border-blue-200 hover:border-blue-800"
+    <div
+      class="flex justify-center items-center w-20 h-20 md:w-32 md:h-32"
     >
-      <div
-        class="flex justify-center items-center w-32 h-32"
-      >
-        <img
-          class="w-auto h-24"
-          src="charizard_image"
-        />
-      </div>
-       
-      <div
-        class="flex justify-center"
-      >
-        Charizard
-      </div>
-    </article>
+      <img
+        class="w-auto h-16 md:h-24"
+        src="charizard_image"
+      />
+    </div>
+     
+    <div
+      class="flex justify-center text-sm md:text-base w-32 text-center"
+    >
+      
+      Charizard
+    
+    </div>
   </router-link-stub>
 </div>
 `;
