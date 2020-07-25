@@ -9,9 +9,7 @@ import { createLocalVue } from "@vue/test-utils";
 describe("Minimal Layout", () => {
   describe("Not logged", () => {
     let spyGetItem: jest.SpyInstance<string | null, [string]>;
-    /* eslint-disable  @typescript-eslint/no-explicit-any */
     let wrapper: Wrapper<any>;
-    /* eslint-enable  @typescript-eslint/no-explicit-any */
 
     const localVue = createLocalVue();
     localVue.use(VueRouter);
