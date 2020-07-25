@@ -7,7 +7,7 @@
     >
       <article class="p-3 border border-blue-200 hover:border-blue-800">
         <div class="flex justify-center items-center w-32 h-32">
-          <img :src="item | imageSRC" class="w-auto h-24" />
+          <img :src="item.image" class="w-auto h-24" />
         </div>
         <div class="flex justify-center">{{ item.name }}</div>
       </article>
@@ -16,9 +16,9 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import Vue from 'vue';
 
 export default Vue.extend({
-  name: "app-lista"
+  name: 'app-lista'
 });
 </script>

@@ -1,16 +1,17 @@
 import { shallowMount } from "@vue/test-utils";
 import DetailPage from "@/pages/DetailPage.vue";
 import Vuex from "vuex";
-
-import { createLocalVue } from "../utils";
-const localVue = createLocalVue();
+import itemsFixture from "../fixtures/items"
+import { createLocalVue } from "@vue/test-utils";
 
 describe("Detail Page", () => {
   describe("Default", () => {
+    const localVue = createLocalVue();
+    localVue.use(Vuex);
     const store = new Vuex.Store({
       getters: {
         currentItem() {
-          return { id: "4", name: "Charmander" };
+          return itemsFixture[0];
         }
       }
     });
@@ -30,7 +31,7 @@ describe("Detail Page", () => {
           .find("article")
           .find("img")
           .attributes().src
-      ).toBe("https://img.pokemondb.net/artwork/charmander.jpg");
+      ).toBe("charmander_image");
     });
 
     it("should render the name", () => {
@@ -45,6 +46,7 @@ describe("Detail Page", () => {
 
   describe("Wrong route", () => {
     const localVue = createLocalVue();
+    localVue.use(Vuex);
     const store = new Vuex.Store({
       getters: {
         currentItem() {

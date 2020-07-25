@@ -2,9 +2,9 @@ import { shallowMount, mount, RouterLinkStub } from "@vue/test-utils";
 import ListPage from "@/pages/ListPage.vue";
 import itemsFixture from "../fixtures/items";
 import Vuex from "vuex";
-
-import { createLocalVue } from "../utils";
+import { createLocalVue } from "@vue/test-utils";
 const localVue = createLocalVue();
+localVue.use(Vuex);
 
 describe("List Page", () => {
   describe("Default", () => {
@@ -35,7 +35,7 @@ describe("List Page", () => {
       const items = wrapper.findAll("article");
       const image = items.at(0).find("img");
       expect(image.attributes().src).toBe(
-        "https://img.pokemondb.net/artwork/charmander.jpg"
+        "charmander_image"
       );
     });
 
