@@ -6,10 +6,12 @@
       :key="item.id"
     >
       <article class="p-3 border border-blue-200 hover:border-blue-800">
-        <div class="flex justify-center items-center w-32 h-32">
-          <img :src="item.image" class="w-auto h-24" />
+        <div class="flex justify-center items-center w-20 h-20 md:w-32 md:h-32">
+          <img :src="item.image" class="w-auto h-16 md:h-24" />
         </div>
-        <div class="flex justify-center">{{ item.name }}</div>
+        <div class="flex justify-center text-sm md:text-base">
+          {{ item.name }}
+        </div>
       </article>
     </router-link>
   </div>
