@@ -1,22 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Detail Page Default should render the component 1`] = `
-<div>
-  <b-card-stub
-    bodytag="div"
-    class="mb-2"
-    footertag="div"
-    headertag="div"
-    imgalt="Image"
-    imgsrc="https://img.pokemondb.net/artwork/charmander.jpg"
-    imgtop="true"
-    subtitletag="h6"
-    subtitletextvariant="muted"
-    tag="div"
-    title="Charmander"
-    titletag="h4"
-  />
-</div>
+<article
+  class="p-3"
+>
+  <div
+    class="flex justify-center items-center"
+  >
+    <img
+      class="w-auto h-64"
+      src="https://img.pokemondb.net/artwork/charmander.jpg"
+    />
+  </div>
+   
+  <div
+    class="flex justify-center text-xl"
+  >
+    <p>
+      Charmander
+    </p>
+  </div>
+</article>
 `;
 
 exports[`Detail Page Wrong route should render the component 1`] = `

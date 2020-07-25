@@ -2,133 +2,119 @@
 
 exports[`Login Page Empty form should render the component 1`] = `
 <div
-  class="container"
+  class="flex flex-1 justify-center items-center"
 >
-  <b-form-stub>
-    <b-row-stub
-      tag="div"
+  <div
+    class="w-full max-w-xs"
+  >
+    <form
+      class="bg-gray-300 border rounded border-gray-600 px-8 pt-6 pb-8"
     >
-      <b-col-stub
-        tag="div"
+      <div
+        class="mb-4"
       >
-        Username
-      </b-col-stub>
-       
-      <b-col-stub
-        tag="div"
-      >
-        <b-form-input-stub
-          debounce="0"
-          type="text"
-          value=""
-        />
-      </b-col-stub>
-    </b-row-stub>
-     
-    <b-row-stub
-      tag="div"
-    >
-      <b-col-stub
-        tag="div"
-      >
-        Password
-      </b-col-stub>
-       
-      <b-col-stub
-        tag="div"
-      >
-        <b-form-input-stub
-          debounce="0"
-          type="password"
-          value=""
-        />
-      </b-col-stub>
-    </b-row-stub>
-     
-    <b-row-stub
-      tag="div"
-    >
-      <b-col-stub
-        tag="div"
-      >
-        <b-button-stub
-          block="true"
-          disabled="true"
-          tag="button"
-          target="_self"
-          type="button"
-          variant="primary"
+        <label
+          class="block text-gray-700 text-sm font-bold mb-2"
+          for="username"
         >
-          Login
-        </b-button-stub>
-      </b-col-stub>
-    </b-row-stub>
-  </b-form-stub>
+          Username
+        </label>
+         
+        <input
+          class="shadow border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:shadow-outline"
+          placeholder="Username"
+          type="text"
+        />
+      </div>
+       
+      <div
+        class="mb-6"
+      >
+        <label
+          class="block text-gray-700 text-sm font-bold mb-2"
+          for="password"
+        >
+          Password
+        </label>
+         
+        <input
+          class="shadow border rounded w-full py-2 px-3 text-gray-700 mb-3 focus:outline-none focus:shadow-outline"
+          placeholder="Password"
+          type="password"
+        />
+      </div>
+       
+      <div
+        class="flex items-center justify-between"
+      >
+        <button
+          class="flex-1 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline bg-gray-600 cursor-not-allowed"
+          disabled="disabled"
+          type="button"
+        >
+          Sign In
+        </button>
+      </div>
+    </form>
+  </div>
 </div>
 `;
 
 exports[`Login Page Filled form should render the component 1`] = `
 <div
-  class="container"
+  class="flex flex-1 justify-center items-center"
 >
-  <b-form-stub>
-    <b-row-stub
-      tag="div"
+  <div
+    class="w-full max-w-xs"
+  >
+    <form
+      class="bg-gray-300 border rounded border-gray-600 px-8 pt-6 pb-8"
     >
-      <b-col-stub
-        tag="div"
+      <div
+        class="mb-4"
       >
-        Username
-      </b-col-stub>
-       
-      <b-col-stub
-        tag="div"
-      >
-        <b-form-input-stub
-          debounce="0"
-          type="text"
-          value="asas"
-        />
-      </b-col-stub>
-    </b-row-stub>
-     
-    <b-row-stub
-      tag="div"
-    >
-      <b-col-stub
-        tag="div"
-      >
-        Password
-      </b-col-stub>
-       
-      <b-col-stub
-        tag="div"
-      >
-        <b-form-input-stub
-          debounce="0"
-          type="password"
-          value="12345"
-        />
-      </b-col-stub>
-    </b-row-stub>
-     
-    <b-row-stub
-      tag="div"
-    >
-      <b-col-stub
-        tag="div"
-      >
-        <b-button-stub
-          block="true"
-          tag="button"
-          target="_self"
-          type="button"
-          variant="primary"
+        <label
+          class="block text-gray-700 text-sm font-bold mb-2"
+          for="username"
         >
-          Login
-        </b-button-stub>
-      </b-col-stub>
-    </b-row-stub>
-  </b-form-stub>
+          Username
+        </label>
+         
+        <input
+          class="shadow border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:shadow-outline"
+          placeholder="Username"
+          type="text"
+        />
+      </div>
+       
+      <div
+        class="mb-6"
+      >
+        <label
+          class="block text-gray-700 text-sm font-bold mb-2"
+          for="password"
+        >
+          Password
+        </label>
+         
+        <input
+          class="shadow border rounded w-full py-2 px-3 text-gray-700 mb-3 focus:outline-none focus:shadow-outline"
+          placeholder="Password"
+          type="password"
+        />
+      </div>
+       
+      <div
+        class="flex items-center justify-between"
+      >
+        <button
+          class="flex-1 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline bg-blue-500 hover:bg-blue-700"
+          type="button"
+        >
+          Sign In
+        </button>
+      </div>
+    </form>
+  </div>
 </div>
 `;

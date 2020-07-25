@@ -1,13 +1,13 @@
-import { shallowMount, mount, Wrapper, RouterLinkStub } from '@vue/test-utils';
-import Minimal from '@/layouts/Minimal.vue';
+import { shallowMount, mount, Wrapper, RouterLinkStub } from "@vue/test-utils";
+import Minimal from "@/layouts/Minimal.vue";
 
-import { createLocalVue } from '../utils';
-import VueRouter from 'vue-router';
+import { createLocalVue } from "../utils";
+import VueRouter from "vue-router";
 
-import * as Storage from '@/utils/Storage';
+import * as Storage from "@/utils/Storage";
 
-describe('Minimal Layout', () => {
-  describe('Not logged', () => {
+describe("Minimal Layout", () => {
+  describe("Not logged", () => {
     let spyGetItem: jest.SpyInstance<string | null, [string]>;
     let wrapper: Wrapper<any>;
 
@@ -15,12 +15,14 @@ describe('Minimal Layout', () => {
     localVue.use(VueRouter);
 
     beforeAll(() => {
-      spyGetItem = jest.spyOn(Storage, 'getItem').mockImplementation((key: string) => {
-        if (key === 'SESSION') {
-          return null;
-        }
-        return 'error';
-      });
+      spyGetItem = jest
+        .spyOn(Storage, "getItem")
+        .mockImplementation((key: string) => {
+          if (key === "SESSION") {
+            return null;
+          }
+          return "error";
+        });
       wrapper = shallowMount(Minimal, { localVue });
     });
 
@@ -28,23 +30,23 @@ describe('Minimal Layout', () => {
       spyGetItem.mockRestore();
     });
 
-    it('should get the session status', () => {
+    it("should get the session status", () => {
       expect(spyGetItem).toBeCalledTimes(2);
-      expect(spyGetItem).toHaveBeenNthCalledWith(1, 'SESSION');
-      expect(spyGetItem).toHaveBeenNthCalledWith(2, 'SESSION');
+      expect(spyGetItem).toHaveBeenNthCalledWith(1, "SESSION");
+      expect(spyGetItem).toHaveBeenNthCalledWith(2, "SESSION");
     });
 
-    it('should render the component', () => {
+    it("should render the component", () => {
       expect(wrapper.element).toMatchSnapshot();
     });
 
-    it('should not have a logout button', () => {
-      const button = wrapper.find('b-button-stub');
+    it("should not have a logout button", () => {
+      const button = wrapper.find("b-button-stub");
       expect(button.exists()).toBeFalsy();
     });
   });
 
-  describe('Logged', () => {
+  describe("Logged", () => {
     let spyGetItem: jest.SpyInstance<string | null, [string]>;
     let spyRemoveItem: jest.SpyInstance<void, [string]>;
     let wrapper: Wrapper<any>;
@@ -53,27 +55,31 @@ describe('Minimal Layout', () => {
 
     const pushHandler = jest.fn();
     const $router = {
-      push: pushHandler
+      push: pushHandler,
     };
 
     beforeAll(() => {
-      spyGetItem = jest.spyOn(Storage, 'getItem').mockImplementation((key: string) => {
-        if (key === 'SESSION') {
-          return 'true';
-        }
-        return null;
-      });
-      spyRemoveItem = jest.spyOn(Storage, 'removeItem').mockImplementation((key: string) => {});
+      spyGetItem = jest
+        .spyOn(Storage, "getItem")
+        .mockImplementation((key: string) => {
+          if (key === "SESSION") {
+            return "true";
+          }
+          return null;
+        });
+      spyRemoveItem = jest
+        .spyOn(Storage, "removeItem")
+        .mockImplementation((key: string) => {});
 
       wrapper = mount(Minimal, {
         localVue,
         stubs: {
-          'router-view': true,
-          RouterLink: RouterLinkStub
+          "router-view": true,
+          RouterLink: RouterLinkStub,
         },
         mocks: {
-          $router
-        }
+          $router,
+        },
       });
     });
 
@@ -82,31 +88,53 @@ describe('Minimal Layout', () => {
       spyRemoveItem.mockRestore();
     });
 
-    it('should get the session status', () => {
+    it("should get the session status", () => {
       expect(spyGetItem).toBeCalledTimes(2);
-      expect(spyGetItem).toHaveBeenNthCalledWith(1, 'SESSION');
-      expect(spyGetItem).toHaveBeenNthCalledWith(2, 'SESSION');
+      expect(spyGetItem).toHaveBeenNthCalledWith(1, "SESSION");
+      expect(spyGetItem).toHaveBeenNthCalledWith(2, "SESSION");
     });
 
-    it('should render the component', () => {
+    it("should render the component", () => {
       expect(wrapper.element).toMatchSnapshot();
     });
 
-    it('should perform the logout when button is clicked', () => {
-      const buttons = wrapper.findAll('button');
+    it("should perform the logout when button is clicked", () => {
+      const buttons = wrapper.findAll("button");
       expect(buttons).toHaveLength(2);
 
-      buttons.at(1).trigger('click');
+      buttons.at(1).trigger("click");
 
       expect(spyRemoveItem).toBeCalledTimes(1);
-      expect(spyRemoveItem).toBeCalledWith('SESSION');
+      expect(spyRemoveItem).toBeCalledWith("SESSION");
 
       expect(pushHandler).toBeCalledTimes(1);
-      expect(pushHandler).toBeCalledWith({ name: 'login' });
+      expect(pushHandler).toBeCalledWith({ name: "login" });
     });
 
-    it('should render the link to home', () => {
-      expect(wrapper.findComponent(RouterLinkStub).props().to).toEqual({ name: 'list' });
+    it("should open the navigation when menu button is clicked", () => {
+      const buttons = wrapper.findAll("button");
+      expect(buttons).toHaveLength(2);
+
+      expect(
+        wrapper
+          .find("#menu")
+          .classes()
+          .includes("hidden")
+      ).toBeTruthy();
+      buttons.at(0).trigger("click");
+
+      expect(
+        wrapper
+          .find("#menu")
+          .classes()
+          .includes("hidden")
+      ).toBeTruthy();
+    });
+
+    it("should render the link to home", () => {
+      expect(wrapper.findComponent(RouterLinkStub).props().to).toEqual({
+        name: "list",
+      });
     });
   });
 });

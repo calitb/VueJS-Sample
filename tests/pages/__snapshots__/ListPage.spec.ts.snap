@@ -1,68 +1,74 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`List Page Default should render the component 1`] = `
-<div>
-  <b-card-stub
-    bodytag="div"
-    footertag="div"
-    headertag="div"
-    subtitletag="h6"
-    subtitletextvariant="muted"
-    tag="div"
-    titletag="h4"
+<div
+  class="flex flex-wrap m-4 justify-center"
+>
+  <router-link-stub
+    to="[object Object]"
   >
-    <b-list-group-stub
-      tag="div"
+    <article
+      class="p-3 border border-blue-200 hover:border-blue-800"
     >
-      <b-list-group-item-stub
-        tag="div"
-        target="_self"
+      <div
+        class="flex justify-center items-center w-32 h-32"
       >
         <img
-          height="52px"
+          class="w-auto h-24"
           src="https://img.pokemondb.net/artwork/charmander.jpg"
-          width="52px"
         />
-         
-        <router-link-stub
-          to="[object Object]"
-        >
-          Charmander
-        </router-link-stub>
-      </b-list-group-item-stub>
-      <b-list-group-item-stub
-        tag="div"
-        target="_self"
+      </div>
+       
+      <div
+        class="flex justify-center"
+      >
+        Charmander
+      </div>
+    </article>
+  </router-link-stub>
+  <router-link-stub
+    to="[object Object]"
+  >
+    <article
+      class="p-3 border border-blue-200 hover:border-blue-800"
+    >
+      <div
+        class="flex justify-center items-center w-32 h-32"
       >
         <img
-          height="52px"
+          class="w-auto h-24"
           src="https://img.pokemondb.net/artwork/charmeleon.jpg"
-          width="52px"
         />
-         
-        <router-link-stub
-          to="[object Object]"
-        >
-          Charmeleon
-        </router-link-stub>
-      </b-list-group-item-stub>
-      <b-list-group-item-stub
-        tag="div"
-        target="_self"
+      </div>
+       
+      <div
+        class="flex justify-center"
+      >
+        Charmeleon
+      </div>
+    </article>
+  </router-link-stub>
+  <router-link-stub
+    to="[object Object]"
+  >
+    <article
+      class="p-3 border border-blue-200 hover:border-blue-800"
+    >
+      <div
+        class="flex justify-center items-center w-32 h-32"
       >
         <img
-          height="52px"
+          class="w-auto h-24"
           src="https://img.pokemondb.net/artwork/charizard.jpg"
-          width="52px"
         />
-         
-        <router-link-stub
-          to="[object Object]"
-        >
-          Charizard
-        </router-link-stub>
-      </b-list-group-item-stub>
-    </b-list-group-stub>
-  </b-card-stub>
+      </div>
+       
+      <div
+        class="flex justify-center"
+      >
+        Charizard
+      </div>
+    </article>
+  </router-link-stub>
 </div>
 `;

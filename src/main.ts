@@ -1,22 +1,18 @@
-import Vue from 'vue';
-import App from './App.vue';
-import router from './router';
-import store from './store';
+import "./assets/styles/index.css";
 
-import { itemImageURL } from './items';
+import Vue from "vue";
+import App from "./App.vue";
+import router from "./router";
+import store from "./store";
 
-import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap-vue/dist/bootstrap-vue.css';
-Vue.use(BootstrapVue);
-Vue.use(IconsPlugin);
+import { itemImageURL } from "./items";
 
 Vue.config.productionTip = false;
 
-Vue.filter('imageSRC', itemImageURL);
+Vue.filter("imageSRC", itemImageURL);
 
 new Vue({
   router,
   store,
-  render: (h) => h(App)
-}).$mount('#app');
+  render: (h) => h(App),
+}).$mount("#app");
