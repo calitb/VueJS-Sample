@@ -1,15 +1,15 @@
-import { shallowMount, mount, Wrapper, RouterLinkStub } from "@vue/test-utils";
-import Minimal from "@/layouts/Minimal.vue";
-import { createLocalVue } from "@vue/test-utils";
-import VueRouter from "vue-router";
 import * as Storage from "@/utils/Storage";
+
+import { RouterLinkStub, Wrapper, mount, shallowMount } from "@vue/test-utils";
+
+import Minimal from "@/layouts/Minimal.vue";
+import VueRouter from "vue-router";
+import { createLocalVue } from "@vue/test-utils";
 
 describe("Minimal Layout", () => {
   describe("Not logged", () => {
     let spyGetItem: jest.SpyInstance<string | null, [string]>;
-    /* eslint-disable  @typescript-eslint/no-explicit-any */
     let wrapper: Wrapper<any>;
-    /* eslint-enable  @typescript-eslint/no-explicit-any */
 
     const localVue = createLocalVue();
     localVue.use(VueRouter);

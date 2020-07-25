@@ -1,16 +1,13 @@
-import Vue from "vue";
 import VueRouter, { RouteConfig } from "vue-router";
 
-import store from "@/store";
-import { setCurrentItemiD } from "@/store/mutations";
-
-import { getItem } from "@/utils/Storage";
-
-import LoginPage from "@/pages/LoginPage.vue";
 import DetailPage from "@/pages/DetailPage.vue";
 import HTTP404 from "@/pages/HTTP404.vue";
-
+import LoginPage from "@/pages/LoginPage.vue";
 import Minimal from "@/layouts/Minimal.vue";
+import Vue from "vue";
+import { getItem } from "@/utils/Storage";
+import { setCurrentItemiD } from "@/store/mutations";
+import store from "@/store";
 
 Vue.use(VueRouter);
 

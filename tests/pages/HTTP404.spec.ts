@@ -1,5 +1,5 @@
-import { shallowMount } from "@vue/test-utils";
 import HTTP404 from "@/pages/HTTP404.vue";
+import { shallowMount } from "@vue/test-utils";
 
 describe("HTTP404 page", () => {
   describe("Default", () => {
