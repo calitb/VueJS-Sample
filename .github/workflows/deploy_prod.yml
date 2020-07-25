@@ -29,9 +29,9 @@ jobs:
           CI: true
 
       - name: Run linter
-      run: npm run lint
-      env:
-        CI: true
+        run: npm run lint
+        env:
+          CI: true
 
       - name: Build project
         run: npm run build
