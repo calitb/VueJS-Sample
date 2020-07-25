@@ -1,7 +1,7 @@
-import { mount } from "@vue/test-utils";
 import App from "@/App.vue";
 import Vuex from "vuex";
 import { createLocalVue } from "@vue/test-utils";
+import { mount } from "@vue/test-utils";
 
 describe("App", () => {
   describe("Default", () => {

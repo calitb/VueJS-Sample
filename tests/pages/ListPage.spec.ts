@@ -1,8 +1,9 @@
-import { shallowMount, mount, RouterLinkStub } from "@vue/test-utils";
+import { RouterLinkStub, mount, shallowMount } from "@vue/test-utils";
+
 import ListPage from "@/pages/ListPage.vue";
-import itemsFixture from "../fixtures/items";
 import Vuex from "vuex";
 import { createLocalVue } from "@vue/test-utils";
+import itemsFixture from "../fixtures/items";
 const localVue = createLocalVue();
 localVue.use(Vuex);
 
@@ -34,9 +35,7 @@ describe("List Page", () => {
     it("should render the images", () => {
       const items = wrapper.findAll("article");
       const image = items.at(0).find("img");
-      expect(image.attributes().src).toBe(
-        "charmander_image"
-      );
+      expect(image.attributes().src).toBe("charmander_image");
     });
 
     it("should render the name", () => {

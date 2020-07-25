@@ -11,13 +11,13 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
-import { mapGetters } from 'vuex';
+import Vue from "vue";
+import { mapGetters } from "vuex";
 
 export default Vue.extend({
-  name: 'app-detalle',
+  name: "app-detalle",
   computed: {
-    ...mapGetters({ item: 'currentItem' })
+    ...mapGetters({ item: "currentItem" })
   }
 });
 </script>

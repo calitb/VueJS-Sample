@@ -1,11 +1,10 @@
-import Vue from "vue";
 import Vuex, { createLogger } from "vuex";
+import initialState, { State } from "./state";
 
-import mutations from "./mutations";
+import Vue from "vue";
 import actions from "./actions";
 import getters from "./getters";
-
-import initialState, { State } from "./state";
+import mutations from "./mutations";
 
 Vue.use(Vuex);
 export default new Vuex.Store<State>({

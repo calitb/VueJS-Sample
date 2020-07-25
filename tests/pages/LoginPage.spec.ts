@@ -1,6 +1,8 @@
-import { shallowMount, mount, Wrapper } from "@vue/test-utils";
-import LoginPage from "@/pages/LoginPage.vue";
 import * as Storage from "@/utils/Storage";
+
+import { Wrapper, mount, shallowMount } from "@vue/test-utils";
+
+import LoginPage from "@/pages/LoginPage.vue";
 import { createLocalVue } from "@vue/test-utils";
 
 describe("Login Page", () => {

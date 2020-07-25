@@ -1,11 +1,6 @@
 import axios, { AxiosResponse } from "axios";
-import { Item } from "@/store/state";
 
-export type APIHandler<T> = (
-  error?: Error,
-  data?: T,
-  response?: AxiosResponse<T>
-) => void;
+import { Item } from "@/store/state";
 
 export function itemImageURL(itemName: string): string {
   const normalizedName = itemName
@@ -15,6 +10,12 @@ export function itemImageURL(itemName: string): string {
     .toLowerCase();
   return `https://img.pokemondb.net/artwork/${normalizedName}.jpg`;
 }
+
+export type APIHandler<T> = (
+  error?: Error,
+  data?: T,
+  response?: AxiosResponse<T>
+) => void;
 
 export default async function getItems(
   handler: APIHandler<Item[]>

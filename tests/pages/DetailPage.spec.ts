@@ -1,8 +1,8 @@
-import { shallowMount } from "@vue/test-utils";
 import DetailPage from "@/pages/DetailPage.vue";
 import Vuex from "vuex";
-import itemsFixture from "../fixtures/items"
 import { createLocalVue } from "@vue/test-utils";
+import itemsFixture from "../fixtures/items";
+import { shallowMount } from "@vue/test-utils";
 
 describe("Detail Page", () => {
   describe("Default", () => {

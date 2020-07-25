@@ -1,5 +1,5 @@
-import getters from "@/store/getters";
 import { State } from "@/store/state";
+import getters from "@/store/getters";
 import itemsFixture from "../fixtures/items";
 
 describe("getters", () => {

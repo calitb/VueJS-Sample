@@ -8,6 +8,6 @@
 import Vue from "vue";
 
 export default Vue.extend({
-  name: "app-error",
+  name: "app-error"
 });
 </script>

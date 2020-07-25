@@ -1,10 +1,11 @@
-import { ActionContext } from "vuex";
-import actions, { fetchItems } from "@/store/actions";
-import { setItems } from "@/store/mutations";
-import { State } from "@/store/state";
-
-import itemsFixture from "../fixtures/items";
 import * as getItems from "@/api/getItems";
+
+import actions, { fetchItems } from "@/store/actions";
+
+import { ActionContext } from "vuex";
+import { State } from "@/store/state";
+import itemsFixture from "../fixtures/items";
+import { setItems } from "@/store/mutations";
 
 describe("actions", () => {
   describe("FETCH_ITEMS_ACTION", () => {
