@@ -11,14 +11,19 @@ export function itemImageURL(itemName: string): string {
   return `https://img.pokemondb.net/artwork/${normalizedName}.jpg`;
 }
 
-export type APIHandler<T> = (
+export type APIHandler<T, V> = (
   error?: Error,
   data?: T,
-  response?: AxiosResponse<T>
+  response?: AxiosResponse<V>
 ) => void;
 
-export default async function getItems(
-  handler: APIHandler<Item[]>
+type PokemonResponse = Array<{
+  id: string;
+  name: string;
+}>;
+
+export async function getPokemonItems(
+  handler: APIHandler<Item[], PokemonResponse>
 ): Promise<void> {
   try {
     const response: AxiosResponse<Item[]> = await axios.get(
@@ -33,3 +38,44 @@ export default async function getItems(
     handler(error, undefined, undefined);
   }
 }
+
+interface RickAndMortyResponse {
+  info: {
+    count: number;
+    pages: number;
+    next?: string;
+    prev?: string;
+  };
+  results: Item[];
+}
+
+export async function getRickAndMortyItems(
+  handler: APIHandler<Item[], RickAndMortyResponse>,
+  page = 1,
+  maxPage = 3
+): Promise<void> {
+  try {
+    const response: AxiosResponse<RickAndMortyResponse> = await axios.get(
+      "https://rickandmortyapi.com/api/character/?page=" + page
+    );
+    const data = response.data;
+    const items: Item[] = data.results.map(
+      (d): Item => ({ id: d.id, name: d.name, image: d.image })
+    );
+
+    if (response.data.info.next && page < maxPage) {
+      await getRickAndMortyItems((error, moreItems) => {
+        if (moreItems) {
+          items.push(...moreItems);
+        }
+        handler(undefined, items, response);
+      }, page + 1);
+    } else {
+      handler(undefined, items, response);
+    }
+  } catch (error) {
+    handler(error, undefined, undefined);
+  }
+}
+
+export default getPokemonItems;
