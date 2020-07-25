@@ -15,7 +15,7 @@ exports[`List Page Default should render the component 1`] = `
       >
         <img
           class="w-auto h-24"
-          src="https://img.pokemondb.net/artwork/charmander.jpg"
+          src="charmander_image"
         />
       </div>
        
@@ -37,7 +37,7 @@ exports[`List Page Default should render the component 1`] = `
       >
         <img
           class="w-auto h-24"
-          src="https://img.pokemondb.net/artwork/charmeleon.jpg"
+          src="charmeleon_image"
         />
       </div>
        
@@ -59,7 +59,7 @@ exports[`List Page Default should render the component 1`] = `
       >
         <img
           class="w-auto h-24"
-          src="https://img.pokemondb.net/artwork/charizard.jpg"
+          src="charizard_image"
         />
       </div>
        

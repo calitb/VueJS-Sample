@@ -1,9 +1,7 @@
 import { shallowMount, mount, Wrapper, RouterLinkStub } from "@vue/test-utils";
 import Minimal from "@/layouts/Minimal.vue";
-
-import { createLocalVue } from "../utils";
+import { createLocalVue } from "@vue/test-utils";
 import VueRouter from "vue-router";
-
 import * as Storage from "@/utils/Storage";
 
 describe("Minimal Layout", () => {

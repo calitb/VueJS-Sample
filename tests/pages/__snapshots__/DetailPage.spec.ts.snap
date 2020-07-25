@@ -9,7 +9,7 @@ exports[`Detail Page Default should render the component 1`] = `
   >
     <img
       class="w-auto h-64"
-      src="https://img.pokemondb.net/artwork/charmander.jpg"
+      src="charmander_image"
     />
   </div>
    

@@ -1,7 +1,7 @@
 <template>
   <article v-if="item" class="p-3">
     <div class="flex justify-center items-center">
-      <img :src="item | imageSRC" class="w-auto h-64" />
+      <img :src="item.image" class="w-auto h-64" />
     </div>
     <div class="flex justify-center text-xl">
       <p>{{ item.name }}</p>
@@ -11,13 +11,13 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-import { mapGetters } from "vuex";
+import Vue from 'vue';
+import { mapGetters } from 'vuex';
 
 export default Vue.extend({
-  name: "app-detalle",
+  name: 'app-detalle',
   computed: {
-    ...mapGetters({ item: "currentItem" })
+    ...mapGetters({ item: 'currentItem' })
   }
 });
 </script>

@@ -1,4 +1,8 @@
-import { Item } from "@/items";
+export interface Item {
+  id: string;
+  name: string;
+  image: string;
+}
 
 export interface State {
   items: Item[];

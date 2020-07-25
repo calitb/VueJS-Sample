@@ -1,5 +1,4 @@
-import { State } from "./state";
-import { Item } from "@/items";
+import { Item, State } from "./state";
 
 export type SET_ITEMS_MUTATION = { type: "SET_ITEMS_MUTATION"; items: Item[] };
 export type SET_CURRENT_ITEM_ID_MUTATION = {

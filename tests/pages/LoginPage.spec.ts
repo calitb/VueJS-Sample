@@ -1,13 +1,11 @@
 import { shallowMount, mount, Wrapper } from "@vue/test-utils";
 import LoginPage from "@/pages/LoginPage.vue";
-
 import * as Storage from "@/utils/Storage";
-
-import { createLocalVue } from "../utils";
-const localVue = createLocalVue();
+import { createLocalVue } from "@vue/test-utils";
 
 describe("Login Page", () => {
   describe("Empty form", () => {
+    const localVue = createLocalVue();
     const wrapper = shallowMount(LoginPage, { localVue });
 
     it("should render the component", () => {
@@ -40,6 +38,7 @@ describe("Login Page", () => {
   });
 
   describe("Filled form", () => {
+    const localVue = createLocalVue();
     const wrapper = shallowMount(LoginPage, { localVue });
 
     beforeAll(async () => {

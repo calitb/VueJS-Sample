@@ -1,17 +1,20 @@
-import { Item } from "@/items";
+import { Item } from "@/store/state";
 
 const items: Item[] = [
   {
     id: "4",
-    name: "Charmander"
+    name: "Charmander",
+    image: "charmander_image"
   },
   {
     id: "5",
-    name: "Charmeleon"
+    name: "Charmeleon",
+    image: "charmeleon_image"
   },
   {
     id: "6",
-    name: "Charizard"
+    name: "Charizard",
+    image: "charizard_image"
   }
 ];
 

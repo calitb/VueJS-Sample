@@ -1,5 +1,4 @@
-import { State } from "./state";
-import { Item } from "@/items";
+import { Item, State } from "./state";
 
 export default {
   currentItem: (state: State): Item | undefined => {
