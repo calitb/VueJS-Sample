@@ -5,11 +5,11 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
-import { fetchItems } from '@/store/actions';
+import Vue from "vue";
+import { fetchItems } from "@/store/actions";
 
 export default Vue.extend({
-  name: 'App',
+  name: "App",
   created() {
     this.$store.dispatch(fetchItems());
   }

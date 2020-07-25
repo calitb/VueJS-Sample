@@ -1,4 +1,4 @@
-import { Item } from '@/items';
+import { Item } from "@/items";
 
 export interface State {
   items: Item[];

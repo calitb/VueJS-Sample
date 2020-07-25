@@ -10,16 +10,16 @@ describe("List Page", () => {
   describe("Default", () => {
     const store = new Vuex.Store({
       state: {
-        items: itemsFixture,
-      },
+        items: itemsFixture
+      }
     });
 
     const wrapper = shallowMount(ListPage, {
       localVue,
       store,
       stubs: {
-        "router-link": true,
-      },
+        "router-link": true
+      }
     });
 
     it("should render the component", () => {
@@ -48,15 +48,15 @@ describe("List Page", () => {
   describe("Links", () => {
     const store = new Vuex.Store({
       state: {
-        items: itemsFixture,
-      },
+        items: itemsFixture
+      }
     });
     const wrapper = mount(ListPage, {
       localVue,
       store,
       stubs: {
-        RouterLink: RouterLinkStub,
-      },
+        RouterLink: RouterLinkStub
+      }
     });
 
     it("should render the link", () => {

@@ -3,7 +3,11 @@
     <div class="w-full max-w-xs">
       <form class="bg-gray-300 border rounded border-gray-600 px-8 pt-6 pb-8">
         <div class="mb-4">
-          <label class="block text-gray-700 text-sm font-bold mb-2" for="username">Username</label>
+          <label
+            class="block text-gray-700 text-sm font-bold mb-2"
+            for="username"
+            >Username</label
+          >
           <input
             class="shadow border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:shadow-outline"
             v-model="username"
@@ -12,7 +16,11 @@
           />
         </div>
         <div class="mb-6">
-          <label class="block text-gray-700 text-sm font-bold mb-2" for="password">Password</label>
+          <label
+            class="block text-gray-700 text-sm font-bold mb-2"
+            for="password"
+            >Password</label
+          >
           <input
             class="shadow border rounded w-full py-2 px-3 text-gray-700 mb-3 focus:outline-none focus:shadow-outline"
             v-model="password"
@@ -24,10 +32,16 @@
           <button
             :disabled="!validated"
             class="flex-1 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-            :class="[...(validated ? ['bg-blue-500', 'hover:bg-blue-700'] : ['bg-gray-600', 'cursor-not-allowed'])]"
+            :class="[
+              ...(validated
+                ? ['bg-blue-500', 'hover:bg-blue-700']
+                : ['bg-gray-600', 'cursor-not-allowed'])
+            ]"
             type="button"
             @click="login"
-          >Sign In</button>
+          >
+            Sign In
+          </button>
         </div>
       </form>
     </div>
