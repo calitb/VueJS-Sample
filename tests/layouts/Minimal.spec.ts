@@ -9,7 +9,9 @@ import * as Storage from "@/utils/Storage";
 describe("Minimal Layout", () => {
   describe("Not logged", () => {
     let spyGetItem: jest.SpyInstance<string | null, [string]>;
+    /* eslint-disable  @typescript-eslint/no-explicit-any */
     let wrapper: Wrapper<any>;
+    /* eslint-enable  @typescript-eslint/no-explicit-any */
 
     const localVue = createLocalVue();
     localVue.use(VueRouter);
@@ -49,13 +51,15 @@ describe("Minimal Layout", () => {
   describe("Logged", () => {
     let spyGetItem: jest.SpyInstance<string | null, [string]>;
     let spyRemoveItem: jest.SpyInstance<void, [string]>;
+    /* eslint-disable  @typescript-eslint/no-explicit-any */
     let wrapper: Wrapper<any>;
+    /* eslint-enable  @typescript-eslint/no-explicit-any */
 
     const localVue = createLocalVue();
 
     const pushHandler = jest.fn();
     const $router = {
-      push: pushHandler,
+      push: pushHandler
     };
 
     beforeAll(() => {
@@ -69,17 +73,19 @@ describe("Minimal Layout", () => {
         });
       spyRemoveItem = jest
         .spyOn(Storage, "removeItem")
-        .mockImplementation((key: string) => {});
+        .mockImplementation(() => {
+          return;
+        });
 
       wrapper = mount(Minimal, {
         localVue,
         stubs: {
           "router-view": true,
-          RouterLink: RouterLinkStub,
+          RouterLink: RouterLinkStub
         },
         mocks: {
-          $router,
-        },
+          $router
+        }
       });
     });
 
@@ -133,7 +139,7 @@ describe("Minimal Layout", () => {
 
     it("should render the link to home", () => {
       expect(wrapper.findComponent(RouterLinkStub).props().to).toEqual({
-        name: "list",
+        name: "list"
       });
     });
   });

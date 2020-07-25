@@ -1,16 +1,16 @@
-import { mount } from '@vue/test-utils';
-import App from '@/App.vue';
+import { mount } from "@vue/test-utils";
+import App from "@/App.vue";
 
-import Vuex from 'vuex';
-import { createLocalVue } from './utils';
+import Vuex from "vuex";
+import { createLocalVue } from "./utils";
 
-describe('App', () => {
-  describe('Default', () => {
+describe("App", () => {
+  describe("Default", () => {
     const fetchItemsAction = jest.fn();
     const localVue = createLocalVue();
     const store = new Vuex.Store({
       actions: {
-        ['FETCH_ITEMS_ACTION']: fetchItemsAction
+        ["FETCH_ITEMS_ACTION"]: fetchItemsAction
       }
     });
 
@@ -18,15 +18,15 @@ describe('App', () => {
       localVue,
       store,
       stubs: {
-        'router-view': true
+        "router-view": true
       }
     });
 
-    it('should render the component', () => {
+    it("should render the component", () => {
       expect(wrapper.element).toMatchSnapshot();
     });
 
-    it('should call fetchItems on load', () => {
+    it("should call fetchItems on load", () => {
       expect(fetchItemsAction).toBeCalled();
     });
   });

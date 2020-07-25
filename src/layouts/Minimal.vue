@@ -5,12 +5,15 @@
         tag="span"
         class="flex items-center py-2 no-underline cursor-pointer text-xl text-white font-bold"
         :to="{ name: 'list' }"
-      >VueJS Tutorial</router-link>
+        >VueJS Tutorial</router-link
+      >
       <button
         v-if="authenticated()"
         @click="toggle"
         class="material-icons p-2 text-white mr-2 md:hidden ml-auto border rounded border-white focus:outline-none"
-      >menu</button>
+      >
+        menu
+      </button>
       <div
         id="menu"
         v-if="authenticated()"
@@ -20,7 +23,9 @@
         <button
           class="p-2 w-full text-left md:ml-auto md:w-auto md:h-auto text-white rounded hover:border-transparent hover:text-black hover:bg-gray-200 cursor-pointer"
           @click="logout"
-        >Sign out</button>
+        >
+          Sign out
+        </button>
       </div>
     </nav>
     <div class="flex flex-1">

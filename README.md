@@ -21,6 +21,13 @@ npm run serve
 npm run build
 ```
 
+### Run production build
+
+```
+npm install -g serve
+serve -s dist
+```
+
 ### Run your unit tests
 
 ```
@@ -32,7 +39,3 @@ npm run test:unit
 ```
 npm run lint
 ```
-
-### Customize configuration
-
-See [Configuration Reference](https://cli.vuejs.org/config/).

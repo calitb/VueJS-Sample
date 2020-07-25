@@ -11,13 +11,13 @@ describe("Detail Page", () => {
       getters: {
         currentItem() {
           return { id: "4", name: "Charmander" };
-        },
-      },
+        }
+      }
     });
 
     const wrapper = shallowMount(DetailPage, {
       store,
-      localVue,
+      localVue
     });
 
     it("should render the component", () => {
@@ -49,13 +49,13 @@ describe("Detail Page", () => {
       getters: {
         currentItem() {
           return undefined;
-        },
-      },
+        }
+      }
     });
 
     const wrapper = shallowMount(DetailPage, {
       store,
-      localVue,
+      localVue
     });
 
     it("should render the component", () => {

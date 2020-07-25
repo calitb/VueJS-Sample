@@ -1,17 +1,17 @@
-import { Item } from '@/items';
+import { Item } from "@/items";
 
 const items: Item[] = [
   {
-    id: '4',
-    name: 'Charmander'
+    id: "4",
+    name: "Charmander"
   },
   {
-    id: '5',
-    name: 'Charmeleon'
+    id: "5",
+    name: "Charmeleon"
   },
   {
-    id: '6',
-    name: 'Charizard'
+    id: "6",
+    name: "Charizard"
   }
 ];
 

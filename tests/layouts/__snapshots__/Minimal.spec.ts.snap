@@ -16,7 +16,9 @@ exports[`Minimal Layout Logged should render the component 1`] = `
     <button
       class="material-icons p-2 text-white mr-2 md:hidden ml-auto border rounded border-white focus:outline-none"
     >
+      
       menu
+    
     </button>
      
     <div
@@ -26,7 +28,9 @@ exports[`Minimal Layout Logged should render the component 1`] = `
       <button
         class="p-2 w-full text-left md:ml-auto md:w-auto md:h-auto text-white rounded hover:border-transparent hover:text-black hover:bg-gray-200 cursor-pointer"
       >
+        
         Sign out
+      
       </button>
     </div>
   </nav>

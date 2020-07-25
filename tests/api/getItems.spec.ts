@@ -1,12 +1,12 @@
-import axios, { AxiosStatic } from 'axios';
+import axios, { AxiosStatic } from "axios";
 
-import getItems from '@/api/getItems';
-import itemsFixture from '../fixtures/items';
+import getItems from "@/api/getItems";
+import itemsFixture from "../fixtures/items";
 
-jest.mock('axios');
+jest.mock("axios");
 
-describe('API getItems', () => {
-  describe('success', () => {
+describe("API getItems", () => {
+  describe("success", () => {
     const response = { data: itemsFixture };
 
     beforeAll(() => {
@@ -18,7 +18,7 @@ describe('API getItems', () => {
       jest.restoreAllMocks();
     });
 
-    it('fetches successfully data', async () => {
+    it("fetches successfully data", async () => {
       const handler = jest.fn();
       await getItems(handler);
 
@@ -27,8 +27,8 @@ describe('API getItems', () => {
     });
   });
 
-  describe('error', () => {
-    const errorMessage = 'Network Error';
+  describe("error", () => {
+    const errorMessage = "Network Error";
     const error = new Error(errorMessage);
 
     beforeAll(() => {
@@ -41,7 +41,7 @@ describe('API getItems', () => {
       jest.restoreAllMocks();
     });
 
-    it('fetches erroneously data from an API', async () => {
+    it("fetches erroneously data from an API", async () => {
       const handler = jest.fn();
       await getItems(handler);
 

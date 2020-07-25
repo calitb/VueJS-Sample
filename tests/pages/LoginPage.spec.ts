@@ -1,4 +1,3 @@
-import Vue from "vue";
 import { shallowMount, mount, Wrapper } from "@vue/test-utils";
 import LoginPage from "@/pages/LoginPage.vue";
 
@@ -46,7 +45,7 @@ describe("Login Page", () => {
     beforeAll(async () => {
       await wrapper.setData({
         username: "asas",
-        password: "12345",
+        password: "12345"
       });
     });
 
@@ -70,29 +69,31 @@ describe("Login Page", () => {
 
   describe("Events", () => {
     let spySetItem: jest.SpyInstance<void, [string, string]>;
+    /* eslint-disable  @typescript-eslint/no-explicit-any */
     let wrapper: Wrapper<any>;
+    /* eslint-enable  @typescript-eslint/no-explicit-any */
 
     const localVue = createLocalVue();
 
     const pushHandler = jest.fn();
     const $router = {
-      push: pushHandler,
+      push: pushHandler
     };
 
     beforeAll(async () => {
-      spySetItem = jest
-        .spyOn(Storage, "setItem")
-        .mockImplementation((key: string) => {});
+      spySetItem = jest.spyOn(Storage, "setItem").mockImplementation(() => {
+        return;
+      });
       wrapper = mount(LoginPage, {
         localVue,
         mocks: {
-          $router,
-        },
+          $router
+        }
       });
 
       await wrapper.setData({
         username: "asas",
-        password: "12345",
+        password: "12345"
       });
     });
 
