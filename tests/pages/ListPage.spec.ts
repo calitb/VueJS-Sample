@@ -4,6 +4,7 @@ import ListPage from "@/pages/ListPage.vue";
 import Vuex from "vuex";
 import { createLocalVue } from "@vue/test-utils";
 import itemsFixture from "../fixtures/items";
+
 const localVue = createLocalVue();
 localVue.use(Vuex);
 
@@ -28,12 +29,12 @@ describe("List Page", () => {
     });
 
     it("should render 3 items ", () => {
-      const items = wrapper.findAll("article");
+      const items = wrapper.findAll("router-link-stub");
       expect(items).toHaveLength(3);
     });
 
     it("should render the images", () => {
-      const items = wrapper.findAll("article");
+      const items = wrapper.findAll("router-link-stub");
       const image = items.at(0).find("img");
       expect(image.attributes().src).toBe("charmander_image");
     });
