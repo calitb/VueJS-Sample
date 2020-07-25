@@ -9,7 +9,7 @@ exports[`Minimal Layout Logged should render the component 1`] = `
       <div
         class="navbar-brand"
       >
-        VueJS Tutorial
+        VueJS Tutorial 2
       </div>
     </a>
      
@@ -75,7 +75,7 @@ exports[`Minimal Layout Not logged should render the component 1`] = `
         tag="div"
         target="_self"
       >
-        VueJS Tutorial
+        VueJS Tutorial 2
       </b-navbar-brand-stub>
     </router-link-stub>
      
