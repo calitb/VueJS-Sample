@@ -9,7 +9,9 @@
     "test": "vue-cli-service test:unit",
     "test:update": "vue-cli-service test:unit -u",
     "lint": "vue-cli-service lint --max-warnings=0",
-    "build-report": "vue-cli-service build --report"
+    "build-report": "vue-cli-service build --report",
+    "docker:dev:build": "docker build --tag calitb/vuejs-sample/dev .",
+    "docker:dev:start": "docker run --name vuejssampledev -d -p 80:8080 -v $PWD:/app calitb/vuejs-sample/dev"
   },
   "dependencies": {
     "axios": "^0.19.2",

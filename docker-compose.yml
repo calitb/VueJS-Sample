@@ -1,0 +1,14 @@
+version: "3"
+services:
+  vuejssampledev:
+    image: calitb/vuejs-sample/dev
+    container_name: vuejssampledev
+    build:
+      context: ./
+      dockerfile: "Dockerfile"
+    ports:
+      - 80:8080
+    volumes:
+      - ./:/app
+    environment:
+      - CHOKIDAR_USEPOLLING=true

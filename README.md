@@ -41,6 +41,21 @@ npm run lint
 
 ## Docker
 
+### Create Dev Environment
+
+```
+npm run docker:dev:build
+```
+
+### Run Dev Environment
+
+```
+npm run docker:dev:start
+docker exec -it vuejssampledev bash
+npm i
+npm run serve
+```
+
 ### Run latest production image
 
 ```
