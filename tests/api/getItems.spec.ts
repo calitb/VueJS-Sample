@@ -229,14 +229,6 @@ describe("API getItems", () => {
   });
 });
 
-jest.mock("@/api/client", () => {
-  return {
-    rickAndMortyClient: {
-      query: jest.fn()
-    }
-  };
-});
-
 describe("API GraphQL getRickAndMortyItems", () => {
   describe("success", () => {
     const response = {
