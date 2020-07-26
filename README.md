@@ -44,5 +44,5 @@ npm run lint
 ### Run latest production image
 
 ```
-docker run --rm -p 80:5000 docker.pkg.github.com/calitb/vuejs-sample/vuejsdemo:latest
+docker run --rm -p 80:5000 docker.pkg.github.com/calitb/vuejs-sample/demo
 ```
