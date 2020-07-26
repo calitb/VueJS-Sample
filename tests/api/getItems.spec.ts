@@ -2,7 +2,8 @@ import axios, { AxiosStatic } from "axios";
 import {
   getPokemonItems,
   getRickAndMortyItems,
-  itemImageURL
+  itemImageURL,
+  queryRickAndMortyItems
 } from "@/api/getItems";
 
 import { rickAndMortyClient } from "@/api/client";
@@ -276,7 +277,7 @@ describe("API GraphQL getRickAndMortyItems", () => {
             }
           ],
           info: {
-            next: 2
+            next: null
           }
         }
       }
@@ -287,29 +288,29 @@ describe("API GraphQL getRickAndMortyItems", () => {
 
     it("fetches successfully data", async () => {
       const handler = jest.fn();
-      await getRickAndMortyItems(handler);
+      await queryRickAndMortyItems(handler);
 
       expect(handler).toBeCalledTimes(1);
       expect(handler).toBeCalledWith(
         undefined,
         [
           {
-            id: 1,
+            id: "1",
             name: "Rick Sanchez",
             image: "https://rickandmortyapi.com/api/character/avatar/1.jpeg"
           },
           {
-            id: 2,
+            id: "2",
             name: "Morty Smith",
             image: "https://rickandmortyapi.com/api/character/avatar/2.jpeg"
           },
           {
-            id: 3,
+            id: "3",
             name: "Summer Smith",
             image: "https://rickandmortyapi.com/api/character/avatar/3.jpeg"
           },
           {
-            id: 4,
+            id: "4",
             name: "Beth Smith",
             image: "https://rickandmortyapi.com/api/character/avatar/4.jpeg"
           }

@@ -114,4 +114,4 @@ export async function queryRickAndMortyItems(
   }
 }
 
-export default queryRickAndMortyItems;
+export default getPokemonItems;
