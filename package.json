@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "start": "serve -s dist",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test": "vue-cli-service test:unit",
@@ -38,6 +39,7 @@
     "eslint-plugin-vue": "^6.2.2",
     "postcss-preset-env": "^6.7.0",
     "prettier": "^1.19.1",
+    "serve": "^11.3.2",
     "typescript": "~3.9.3",
     "vue-template-compiler": "^2.6.11"
   }
