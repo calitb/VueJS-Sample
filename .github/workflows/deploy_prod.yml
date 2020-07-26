@@ -49,7 +49,7 @@ jobs:
       - name: Publish to Github Packages Registry
         uses: elgohr/Publish-Docker-Github-Action@master
         with:
-          name: calitb/vuejs-sample/demo
+          name: vuejs-sample/demo
           registry: docker.pkg.github.com
           username: calitb
           password: ${{ secrets.GITHUB_TOKEN }}
