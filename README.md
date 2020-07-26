@@ -24,8 +24,7 @@ npm run build
 ### Run production build
 
 ```
-npm install -g serve
-serve -s dist
+npm start
 ```
 
 ### Run your unit tests
@@ -38,4 +37,12 @@ npm run test:unit
 
 ```
 npm run lint
+```
+
+## Docker
+
+### Run latest production image
+
+```
+docker run --rm -p 80:5000 docker.pkg.github.com/calitb/vuejs-sample/vuejsdemo:latest
 ```
