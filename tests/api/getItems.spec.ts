@@ -2,8 +2,11 @@ import axios, { AxiosStatic } from "axios";
 import {
   getPokemonItems,
   getRickAndMortyItems,
-  itemImageURL
+  itemImageURL,
+  queryRickAndMortyItems
 } from "@/api/getItems";
+
+import { rickAndMortyClient } from "@/api/client";
 
 jest.mock("axios");
 
@@ -85,6 +88,26 @@ describe("API getItems", () => {
 
         expect(handler).toBeCalledTimes(1);
         expect(handler).toBeCalledWith(error, undefined, undefined);
+      });
+    });
+
+    describe("itemImageURL", () => {
+      it("should return the correct URL", () => {
+        expect(itemImageURL("Charmander")).toBe(
+          "https://img.pokemondb.net/artwork/charmander.jpg"
+        );
+      });
+
+      it("should return the correct URL when there are whitespace characters", () => {
+        expect(itemImageURL("Mr. Mime")).toBe(
+          "https://img.pokemondb.net/artwork/mr-mime.jpg"
+        );
+      });
+
+      it("should return the correct URL when there are special characters", () => {
+        expect(itemImageURL("Farfetch'd")).toBe(
+          "https://img.pokemondb.net/artwork/farfetchd.jpg"
+        );
       });
     });
   });
@@ -206,22 +229,86 @@ describe("API getItems", () => {
   });
 });
 
-describe("itemImageURL", () => {
-  it("should return the correct URL", () => {
-    expect(itemImageURL("Charmander")).toBe(
-      "https://img.pokemondb.net/artwork/charmander.jpg"
-    );
-  });
+describe("API GraphQL getRickAndMortyItems", () => {
+  describe("success", () => {
+    const response = {
+      data: {
+        characters: {
+          results: [
+            {
+              id: "1",
+              name: "Rick Sanchez",
+              image: "https://rickandmortyapi.com/api/character/avatar/1.jpeg"
+            },
+            {
+              id: "2",
+              name: "Morty Smith",
+              image: "https://rickandmortyapi.com/api/character/avatar/2.jpeg"
+            }
+          ],
+          info: {
+            next: 2
+          }
+        }
+      }
+    };
 
-  it("should return the correct URL when there are whitespace characters", () => {
-    expect(itemImageURL("Mr. Mime")).toBe(
-      "https://img.pokemondb.net/artwork/mr-mime.jpg"
-    );
-  });
+    const response2 = {
+      data: {
+        characters: {
+          results: [
+            {
+              id: "3",
+              name: "Summer Smith",
+              image: "https://rickandmortyapi.com/api/character/avatar/3.jpeg"
+            },
+            {
+              id: "4",
+              name: "Beth Smith",
+              image: "https://rickandmortyapi.com/api/character/avatar/4.jpeg"
+            }
+          ],
+          info: {
+            next: null
+          }
+        }
+      }
+    };
 
-  it("should return the correct URL when there are special characters", () => {
-    expect(itemImageURL("Farfetch'd")).toBe(
-      "https://img.pokemondb.net/artwork/farfetchd.jpg"
-    );
+    (rickAndMortyClient.query as jest.Mock).mockResolvedValueOnce(response);
+    (rickAndMortyClient.query as jest.Mock).mockResolvedValueOnce(response2);
+
+    it("fetches successfully data", async () => {
+      const handler = jest.fn();
+      await queryRickAndMortyItems(handler);
+
+      expect(handler).toBeCalledTimes(1);
+      expect(handler).toBeCalledWith(
+        undefined,
+        [
+          {
+            id: "1",
+            name: "Rick Sanchez",
+            image: "https://rickandmortyapi.com/api/character/avatar/1.jpeg"
+          },
+          {
+            id: "2",
+            name: "Morty Smith",
+            image: "https://rickandmortyapi.com/api/character/avatar/2.jpeg"
+          },
+          {
+            id: "3",
+            name: "Summer Smith",
+            image: "https://rickandmortyapi.com/api/character/avatar/3.jpeg"
+          },
+          {
+            id: "4",
+            name: "Beth Smith",
+            image: "https://rickandmortyapi.com/api/character/avatar/4.jpeg"
+          }
+        ],
+        response
+      );
+    });
   });
 });
