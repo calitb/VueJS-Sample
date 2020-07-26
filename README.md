@@ -39,6 +39,23 @@ npm run test:unit
 npm run lint
 ```
 
+## GraphQL
+
+### Types generation
+
+Write your queries in `./src/queries`, and then run:
+
+```
+npx apollo client:codegen [OPTIONS] --target=typescript --includes='./src/queries/**.ts' --no-addTypename --outputFlat './src/types'
+```
+
+here are the OPTIONS that must be passed:
+
+```
+--endpoint=<url>
+# url of GraphQL endpoint
+```
+
 ## Docker
 
 ### Run latest production image
