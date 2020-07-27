@@ -2,7 +2,7 @@
   <div class="flex flex-wrap m-4 justify-center">
     <router-link
       tag="article"
-      class="p-3 border border-blue-200 hover:border-blue-800 cursor-pointer"
+      class="flex flex-col items-center p-3 border border-blue-200 hover:border-blue-800 cursor-pointer"
       :to="{ name: 'detail', params: { detailId: item.id } }"
       v-for="item in $store.state.items"
       :key="item.id"
