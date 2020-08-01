@@ -1,5 +1,6 @@
-import axios, { AxiosStatic } from "axios";
 import getPokemonItems, { itemImageURL } from "@/api/getPokemonItems";
+
+import axios from "axios";
 
 describe("API getPokemonItems", () => {
   describe("success", () => {

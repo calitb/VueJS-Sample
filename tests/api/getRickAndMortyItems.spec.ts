@@ -1,5 +1,4 @@
-import axios, { AxiosStatic } from "axios";
-
+import axios from "axios";
 import getRickAndMortyItems from "@/api/getRickAndMortyItems";
 
 describe("API getItems", () => {
