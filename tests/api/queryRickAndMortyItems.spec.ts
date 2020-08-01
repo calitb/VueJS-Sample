@@ -83,8 +83,11 @@ describe("API GraphQL getRickAndMortyItems", () => {
     (rickAndMortyClient.query as jest.Mock).mockRejectedValueOnce(error);
 
     it("fail to fetch data", async () => {
-      const result = await queryRickAndMortyItems();
-      expect(result).toBe(error);
+      try {
+        await queryRickAndMortyItems();
+      } catch (e) {
+        expect(e).toEqual(error);
+      }
     });
   });
 });

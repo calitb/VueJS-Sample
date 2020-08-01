@@ -102,8 +102,11 @@ describe("API getItems", () => {
       });
 
       it("fails to fetch data from an API", async () => {
-        const result = await getRickAndMortyItems();
-        expect(result).toBe(error);
+        try {
+          await getRickAndMortyItems();
+        } catch (e) {
+          expect(e).toEqual(error);
+        }
       });
     });
   });

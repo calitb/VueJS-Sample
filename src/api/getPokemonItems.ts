@@ -16,17 +16,13 @@ type PokemonResponse = Array<{
 }>;
 
 export default async function getPokemonItems(): Promise<Item[]> {
-  try {
-    const response = await axios.get<PokemonResponse>(
-      "https://raw.githubusercontent.com/lucasbento/graphql-pokemon/master/src/pokemons/pokemons.json"
-    );
-    const data = response.data;
-    const items: Item[] = data.map(
-      (d): Item => ({ id: d.id, name: d.name, image: itemImageURL(d.name) })
-    );
+  const response = await axios.get<PokemonResponse>(
+    "https://raw.githubusercontent.com/lucasbento/graphql-pokemon/master/src/pokemons/pokemons.json"
+  );
+  const data = response.data;
+  const items: Item[] = data.map(
+    (d): Item => ({ id: d.id, name: d.name, image: itemImageURL(d.name) })
+  );
 
-    return items;
-  } catch (error) {
-    return error;
-  }
+  return items;
 }

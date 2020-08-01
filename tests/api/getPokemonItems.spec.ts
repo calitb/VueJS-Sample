@@ -64,8 +64,11 @@ describe("API getPokemonItems", () => {
     });
 
     it("fails to fetch data from an API", async () => {
-      const result = await getPokemonItems();
-      expect(result).toBe(error);
+      try {
+        await getPokemonItems();
+      } catch (e) {
+        expect(e).toEqual(error);
+      }
     });
   });
 });
