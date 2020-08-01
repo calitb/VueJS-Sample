@@ -5,3 +5,5 @@ jest.mock("@/api/client", () => {
     }
   };
 });
+
+jest.mock("axios");

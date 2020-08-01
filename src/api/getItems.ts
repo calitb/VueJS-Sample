@@ -1,6 +1,5 @@
 import axios, { AxiosResponse } from "axios";
 
-import { ApolloQueryResult } from "apollo-boost";
 import { Item } from "@/store/state";
 import { RickAndMortyCharacters } from "../types/RickAndMortyCharacters";
 import fetchRickAndMortyItemsQuery from "../queries/rickAndMorty";
@@ -15,31 +14,24 @@ export function itemImageURL(itemName: string): string {
   return `https://img.pokemondb.net/artwork/${normalizedName}.jpg`;
 }
 
-export type APIHandler<T, V> = (
-  error?: Error,
-  data?: T,
-  response?: AxiosResponse<V> | ApolloQueryResult<V>
-) => void;
-
 type PokemonResponse = Array<{
   id: string;
   name: string;
 }>;
 
-export async function getPokemonItems(
-  handler: APIHandler<Item[], PokemonResponse>
-): Promise<void> {
+export async function getPokemonItems(): Promise<Item[]> {
   try {
-    const response: AxiosResponse<Item[]> = await axios.get(
+    const response = await axios.get<PokemonResponse>(
       "https://raw.githubusercontent.com/lucasbento/graphql-pokemon/master/src/pokemons/pokemons.json"
     );
     const data = response.data;
     const items: Item[] = data.map(
       (d): Item => ({ id: d.id, name: d.name, image: itemImageURL(d.name) })
     );
-    handler(undefined, items, response);
+
+    return items;
   } catch (error) {
-    handler(error, undefined, undefined);
+    return error;
   }
 }
 
@@ -54,63 +46,60 @@ interface RickAndMortyResponse {
 }
 
 export async function getRickAndMortyItems(
-  handler: APIHandler<Item[], RickAndMortyResponse>,
   page = 1,
   maxPage = 3
-): Promise<void> {
+): Promise<Item[]> {
   try {
     const response: AxiosResponse<RickAndMortyResponse> = await axios.get(
       "https://rickandmortyapi.com/api/character/?page=" + page
     );
-    const data = response.data;
-    const items: Item[] = data.results.map(
+
+    const next = response.data.info.next;
+    const items: Item[] = response.data.results.map(
       (d): Item => ({ id: d.id, name: d.name, image: d.image })
     );
 
-    if (response.data.info.next && page < maxPage) {
-      await getRickAndMortyItems((error, moreItems) => {
-        if (moreItems) {
-          items.push(...moreItems);
-        }
-        handler(undefined, items, response);
-      }, page + 1);
-    } else {
-      handler(undefined, items, response);
+    if (next && page < maxPage) {
+      const moreItems = await getRickAndMortyItems(page + 1, maxPage);
+      if (moreItems) {
+        items.push(...moreItems);
+      }
     }
+    return items;
   } catch (error) {
-    handler(error, undefined, undefined);
+    return error;
   }
 }
 
 export async function queryRickAndMortyItems(
-  handler: APIHandler<Item[], RickAndMortyCharacters>,
   page = 1,
   maxPage = 3
-): Promise<void> {
-  const response = await rickAndMortyClient.query<RickAndMortyCharacters>({
-    variables: { page },
-    query: fetchRickAndMortyItemsQuery
-  });
+): Promise<Item[]> {
+  try {
+    const response = await rickAndMortyClient.query<RickAndMortyCharacters>({
+      variables: { page },
+      query: fetchRickAndMortyItemsQuery
+    });
 
-  const next = response.data.characters?.info?.next;
-  const items =
-    response.data.characters?.results?.map(item => {
-      return {
-        id: item?.id || "",
-        name: item?.name || "",
-        image: item?.image || ""
-      };
-    }) || [];
+    const next = response.data.characters?.info?.next;
+    const items =
+      response.data.characters?.results?.map(item => {
+        return {
+          id: item?.id || "",
+          name: item?.name || "",
+          image: item?.image || ""
+        };
+      }) || [];
 
-  if (next && page < maxPage) {
-    await queryRickAndMortyItems((error, moreItems) => {
+    if (next && page < maxPage) {
+      const moreItems = await queryRickAndMortyItems(page + 1, maxPage);
       if (moreItems) {
         items.push(...moreItems);
       }
-      handler(undefined, items, response);
-    }, page + 1);
-  } else {
-    handler(undefined, items, response);
+    }
+    return items;
+  } catch (error) {
+    return error;
   }
 }
 
