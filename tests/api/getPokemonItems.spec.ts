@@ -20,14 +20,7 @@ describe("API getPokemonItems", () => {
       ]
     };
 
-    beforeAll(() => {
-      const mockedAxios = axios as jest.Mocked<AxiosStatic>;
-      mockedAxios.get.mockResolvedValueOnce(response);
-    });
-
-    afterAll(() => {
-      jest.restoreAllMocks();
-    });
+    (axios.get as jest.Mock).mockResolvedValueOnce(response);
 
     it("fetches successfully data", async () => {
       const result = await getPokemonItems();
@@ -53,15 +46,7 @@ describe("API getPokemonItems", () => {
 
   describe("error", () => {
     const error = new Error("Network Error");
-
-    beforeAll(() => {
-      const mockedAxios = axios as jest.Mocked<AxiosStatic>;
-      mockedAxios.get.mockRejectedValueOnce(error);
-    });
-
-    afterAll(() => {
-      jest.restoreAllMocks();
-    });
+    (axios.get as jest.Mock).mockRejectedValueOnce(error);
 
     it("fails to fetch data from an API", async () => {
       try {

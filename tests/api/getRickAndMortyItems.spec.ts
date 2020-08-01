@@ -51,15 +51,8 @@ describe("API getItems", () => {
         }
       };
 
-      beforeAll(() => {
-        const mockedAxios = axios as jest.Mocked<AxiosStatic>;
-        mockedAxios.get.mockResolvedValueOnce(response);
-        mockedAxios.get.mockResolvedValueOnce(response2);
-      });
-
-      afterAll(() => {
-        jest.restoreAllMocks();
-      });
+      (axios.get as jest.Mock).mockResolvedValueOnce(response);
+      (axios.get as jest.Mock).mockResolvedValueOnce(response2);
 
       it("fetches successfully data", async () => {
         const result = await getRickAndMortyItems();
@@ -91,15 +84,7 @@ describe("API getItems", () => {
 
     describe("error", () => {
       const error = new Error("Network Error");
-
-      beforeAll(() => {
-        const mockedAxios = axios as jest.Mocked<AxiosStatic>;
-        mockedAxios.get.mockRejectedValueOnce(error);
-      });
-
-      afterAll(() => {
-        jest.restoreAllMocks();
-      });
+      (axios.get as jest.Mock).mockRejectedValueOnce(error);
 
       it("fails to fetch data from an API", async () => {
         try {
