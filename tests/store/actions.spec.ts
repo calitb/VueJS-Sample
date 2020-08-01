@@ -1,4 +1,4 @@
-import * as getItems from "@/api/getItems";
+import * as getItems from "@/api/getPokemonItems";
 
 import actions, { fetchItems } from "@/store/actions";
 

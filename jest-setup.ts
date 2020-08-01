@@ -6,4 +6,8 @@ jest.mock("@/api/client", () => {
   };
 });
 
-jest.mock("axios");
+jest.mock("axios", () => {
+  return {
+    get: jest.fn()
+  };
+});

@@ -1,6 +1,6 @@
 import { ActionContext } from "vuex";
 import { State } from "./state";
-import getItems from "@/api/getItems";
+import getItems from "@/api/getPokemonItems";
 import { setItems } from "./mutations";
 
 export type FETCH_ITEMS_ACTION = { type: "FETCH_ITEMS_ACTION" };
