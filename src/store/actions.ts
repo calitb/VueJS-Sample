@@ -10,11 +10,12 @@ export function fetchItems(): FETCH_ITEMS_ACTION {
 }
 
 export default {
-  ["FETCH_ITEMS_ACTION"](context: ActionContext<State, State>) {
-    getItems((error, data) => {
-      if (!error && data) {
-        context.commit(setItems(data));
-      }
-    });
+  async ["FETCH_ITEMS_ACTION"](context: ActionContext<State, State>) {
+    try {
+      const data = await getItems();
+      context.commit(setItems(data));
+    } catch (ex) {
+      return;
+    }
   }
 };

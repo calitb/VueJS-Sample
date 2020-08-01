@@ -13,19 +13,17 @@ describe("actions", () => {
       expect(fetchItems()).toStrictEqual({ type: "FETCH_ITEMS_ACTION" });
     });
 
-    it("should setItems on success", () => {
+    it("should setItems on success", async () => {
       const spyGetItems = jest
         .spyOn(getItems, "default")
-        .mockImplementation(async handler => {
-          handler(undefined, itemsFixture, undefined);
-        });
+        .mockResolvedValueOnce(itemsFixture);
 
       const commit = jest.fn();
       const context: ActionContext<State, State> = ({
         commit
       } as unknown) as ActionContext<State, State>;
 
-      actions.FETCH_ITEMS_ACTION(context);
+      await actions.FETCH_ITEMS_ACTION(context);
 
       expect(commit).toBeCalledTimes(1);
       expect(commit).toBeCalledWith(setItems(itemsFixture));
@@ -33,19 +31,17 @@ describe("actions", () => {
       spyGetItems.mockRestore();
     });
 
-    it("should not call setItems on fail", () => {
+    it("should not call setItems on fail", async () => {
       const spyGetItems = jest
         .spyOn(getItems, "default")
-        .mockImplementation(async handler => {
-          handler(new Error("Network Error"), undefined, undefined);
-        });
+        .mockRejectedValueOnce(new Error("Network Error"));
 
       const commit = jest.fn();
       const context: ActionContext<State, State> = ({
         commit
       } as unknown) as ActionContext<State, State>;
 
-      actions.FETCH_ITEMS_ACTION(context);
+      await actions.FETCH_ITEMS_ACTION(context);
 
       expect(commit).toBeCalledTimes(0);
 
